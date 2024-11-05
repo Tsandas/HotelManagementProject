@@ -1,0 +1,118 @@
+
+#mainAnchorPane {
+     -fx-background-color: white;
+}
+
+#hotelHub {
+    -fx-font-size: 24px;
+        -fx-font-weight: bold;
+        -fx-text-fill: #333;
+        -fx-padding: -3px 0;
+}
+
+#loginHeader {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+    -fx-padding: 20px 0;
+}
+
+.text-field {
+    -fx-max-width: 300;
+    -fx-background-color: #f3f4f6;
+    -fx-text-fill: #333333;
+    -fx-font-size: 14px;
+    -fx-font-weight: normal;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-color: #d1d5db;
+    -fx-border-width: 1px;
+    -fx-padding: 8px;
+    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.05), 5, 0.0, 0, 1);
+}
+
+.text-field .text {
+    -fx-alignment: center-left;
+}
+
+.text-field:focused {
+    -fx-border-color: #3b82f6;
+    -fx-effect: dropshadow(one-pass-box, rgba(59, 130, 246, 0.3), 8, 0.0, 0, 2);
+}
+
+/* Center the prompt text */
+.text-field .text-field-prompt {
+    -fx-alignment: center-left;
+    -fx-text-fill: #9ca3af;
+}
+
+
+.button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.2), 4, 0.0, 0, 2);
+    -fx-cursor: hand;
+    -fx-transition: all 0.3s ease;
+}
+.button:hover {
+    -fx-background-color: #2980b9;
+    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.3), 6, 0.0, 0, 4);
+}
+
+.button:pressed {
+    -fx-background-color: #1c6398;
+    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.2), 2, 0.0, 0, 1);
+    -fx-translate-y: 2px;
+}
+
+.accent-button {
+    -fx-background-color: #2ecc71;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-cursor: hand;
+    -fx-transition: all 0.3s ease;
+}
+
+.accent-button:hover {
+    -fx-background-color: #27ae60;
+}
+
+.accent-button:pressed {
+    -fx-background-color: #1e8449;
+    -fx-translate-y: 2px;
+}
+
+.outline-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #3498db;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 20px;
+    -fx-border-color: #3498db;
+    -fx-border-width: 2px;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-cursor: hand;
+    -fx-transition: all 0.3s ease;
+}
+
+.outline-button:hover {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+}
+
+.outline-button:pressed {
+    -fx-background-color: #2980b9;
+    -fx-text-fill: white;
+    -fx-border-color: #2980b9;
+    -fx-translate-y: 2px;
+}
