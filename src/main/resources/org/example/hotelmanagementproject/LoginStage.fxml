@@ -8,62 +8,69 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
 <AnchorPane id="mainAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="452.0" prefWidth="684.0" stylesheets="@../../../css/LoginStage.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.hotelmanagementproject.LoginController">
    <children>
       <AnchorPane id="logoAnchorPane" prefHeight="452.0" prefWidth="260.0">
          <children>
-            <ImageView fitHeight="452.0" fitWidth="262.0" layoutX="-1.0" layoutY="-3.0" pickOnBounds="true" smooth="false" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <image>
-                  <Image url="@../../../Images/LoginSidePic.jpg" />
-               </image>
-            </ImageView>
+            <BorderPane layoutX="-4.0" prefHeight="363.0" prefWidth="425.0">
+               <left>
+                  <AnchorPane prefHeight="89.0" prefWidth="215.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Button fx:id="btnAdmin" layoutX="64.0" layoutY="24.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="86.0" text="Admin" />
+                     </children>
+                  </AnchorPane>
+               </left>
+               <right>
+                  <AnchorPane prefHeight="89.0" prefWidth="208.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Button fx:id="btnUser" layoutX="63.0" layoutY="24.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" text="User" />
+                     </children>
+                  </AnchorPane>
+               </right>
+               <bottom>
+                  <VBox alignment="CENTER" prefHeight="141.0" prefWidth="425.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <TextField fx:id="textFieldUsername" prefHeight="41.0" prefWidth="425.0" promptText="username">
+                           <VBox.margin>
+                              <Insets bottom="15.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="textFieldPassword" prefHeight="47.0" prefWidth="425.0" promptText="password" />
+                     </children>
+                     <BorderPane.margin>
+                        <Insets />
+                     </BorderPane.margin>
+                  </VBox>
+               </bottom>
+               <top>
+                  <VBox alignment="CENTER" prefHeight="129.0" prefWidth="426.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label id="hotelHub" prefHeight="123.0" prefWidth="111.0" text="HotelHub" />
+                        <HBox prefHeight="58.0" prefWidth="426.0">
+                           <children>
+                              <Region prefHeight="66.0" prefWidth="38.0" />
+                              <Label id="loginHeader" prefHeight="54.0" prefWidth="70.0" text="Login" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </top>
+            </BorderPane>
+            <VBox alignment="CENTER" layoutX="-2.0" layoutY="354.0" prefHeight="97.0" prefWidth="419.0">
+               <children>
+                  <Button fx:id="btnLogin" mnemonicParsing="false" onAction="#onClickLogin" text="Login" />
+               </children>
+            </VBox>
          </children>
       </AnchorPane>
-      <BorderPane layoutX="260.0" prefHeight="363.0" prefWidth="425.0">
-         <left>
-            <AnchorPane prefHeight="89.0" prefWidth="215.0" BorderPane.alignment="CENTER">
-               <children>
-                  <Button layoutX="64.0" layoutY="24.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="86.0" text="Admin" />
-               </children>
-            </AnchorPane>
-         </left>
-         <right>
-            <AnchorPane prefHeight="89.0" prefWidth="208.0" BorderPane.alignment="CENTER">
-               <children>
-                  <Button layoutX="63.0" layoutY="24.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" text="User" />
-               </children>
-            </AnchorPane>
-         </right>
-         <bottom>
-            <VBox alignment="CENTER" prefHeight="141.0" prefWidth="425.0" BorderPane.alignment="CENTER">
-               <children>
-                  <TextField prefHeight="41.0" prefWidth="425.0" promptText="username">
-                     <VBox.margin>
-                        <Insets bottom="15.0" />
-                     </VBox.margin></TextField>
-                  <TextField prefHeight="47.0" prefWidth="425.0" promptText="password" />
-               </children>
-               <BorderPane.margin>
-                  <Insets />
-               </BorderPane.margin>
-            </VBox>
-         </bottom>
-         <top>
-            <VBox alignment="CENTER" prefHeight="129.0" prefWidth="426.0" BorderPane.alignment="CENTER">
-               <children>
-                  <Label id="hotelHub" prefHeight="35.0" prefWidth="130.0" text="Hotel" />
-                  <Label id="hotelHub" prefHeight="36.0" prefWidth="58.0" text="Hub" />
-                  <Label id="loginHeader" prefHeight="65.0" prefWidth="66.0" text="Login" />
-               </children>
-            </VBox>
-         </top>
-      </BorderPane>
-      <VBox alignment="CENTER" layoutX="259.0" layoutY="355.0" prefHeight="97.0" prefWidth="419.0">
-         <children>
-            <Button mnemonicParsing="false" text="Continue as a guest" />
-         </children>
-      </VBox>
+      <ImageView fitHeight="452.0" fitWidth="268.0" layoutX="418.0" pickOnBounds="true" smooth="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="418.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@../../../Images/LoginSidePic.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

@@ -1,0 +1,16 @@
+#headerAnchorPane{
+    -fx-background-color: #add8e6;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+}
+
+#paneDash {
+    -fx-background-color: #add8e6;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+}
+
+.text-field {
+     -fx-alignment: center-left;
+     -fx-background-color: black;
+}
