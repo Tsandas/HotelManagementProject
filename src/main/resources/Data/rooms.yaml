@@ -1,0 +1,21 @@
+rooms:
+  - room_id: 101
+    available: true
+  - room_id: 102
+    available: false
+  - room_id: 103
+    available: true
+  - room_id: 104
+    available: false
+  - room_id: 105
+    available: false
+  - room_id: 106
+    available: false
+  - room_id: 107
+    available: false
+  - room_id: 108
+    available: true
+  - room_id: 109
+    available: false
+  - room_id: 110
+    available: true

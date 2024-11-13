@@ -1,52 +1,36 @@
-
 #mainAnchorPane {
-     -fx-background-color: white;
+    -fx-background-color: #E5E8EF; /* Soft gray background similar to the admin page */
 }
 
-#hotelHub {
-    -fx-font-size: 24px;
-        -fx-font-weight: bold;
-        -fx-text-fill: #333;
-        -fx-padding: -3px 0;
+.titleLabel {
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #34495E; /* Dark gray for titles */
+    -fx-padding: 0 0 20 0;
 }
 
-#loginHeader {
+.subTitleLabel {
     -fx-font-size: 24px;
     -fx-font-weight: bold;
-    -fx-text-fill: #333;
-    -fx-padding: 20px 0;
+    -fx-text-fill: #34495E; /* Matching subheading style */
 }
 
-.text-field {
-    -fx-max-width: 300;
+.inputField {
     -fx-background-color: #f3f4f6;
-    -fx-text-fill: #333333;
-    -fx-font-size: 14px;
-    -fx-font-weight: normal;
-    -fx-background-radius: 8px;
     -fx-border-radius: 8px;
     -fx-border-color: #d1d5db;
-    -fx-border-width: 1px;
-    -fx-padding: 8px;
-    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.05), 5, 0.0, 0, 1);
+    -fx-font-size: 14px;
+    -fx-padding: 10px;
+    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.05), 5, 0, 0, 1);
+    -fx-margin-bottom: 15px;
 }
 
-.text-field .text {
-    -fx-alignment: center-left;
-}
-
-.text-field:focused {
+.inputField:focused {
     -fx-border-color: #3b82f6;
-    -fx-effect: dropshadow(one-pass-box, rgba(59, 130, 246, 0.3), 8, 0.0, 0, 2);
+    -fx-effect: dropshadow(one-pass-box, rgba(59, 130, 246, 0.3), 8, 0, 0, 2);
 }
 
-/* Center the prompt text */
-.text-field .text-field-prompt {
-    -fx-alignment: center-left;
-    -fx-text-fill: #9ca3af;
-}
-
-.button {
+.loginButton {
     -fx-background-color: #3498db;
     -fx-text-fill: white;
     -fx-font-size: 14px;
@@ -59,26 +43,41 @@
     -fx-transition: all 0.3s ease;
 }
 
-.button:hover {
+.loginButton:hover {
     -fx-background-color: #2980b9;
     -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.3), 6, 0.0, 0, 4);
 }
 
-.button:pressed {
+.loginButton:pressed {
     -fx-background-color: #1c6398;
     -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.2), 2, 0.0, 0, 1);
     -fx-translate-y: 2px;
 }
 
-.button.active {
-    -fx-background-color: #82c3e8;
-    -fx-text-fill: #ffffff;
-    -fx-effect: none;
-    -fx-cursor: default;
+.adminUserButton {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.2), 4, 0.0, 0, 2);
+    -fx-cursor: hand;
+    -fx-transition: all 0.3s ease;
 }
 
-.button:disabled {
-    -fx-background-color: #3a8db7;
-    -fx-opacity: 1;
-    -fx-text-fill: #ffffff;
+.adminUserButton:hover {
+    -fx-background-color: #2980b9;
+    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.3), 6, 0.0, 0, 4);
+}
+
+.adminUserButton:pressed {
+    -fx-background-color: #1c6398;
+    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.2), 2, 0.0, 0, 1);
+    -fx-translate-y: 2px;
+}
+
+#logoAnchorPane {
+    -fx-background-color: #FFFFFF;
 }

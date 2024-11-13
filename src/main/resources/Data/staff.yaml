@@ -1,0 +1,42 @@
+staff:
+  - name: John
+    surname: Smith
+    pay: 5000
+    field: Reception
+    phone_number: "123-456-7890"
+
+  - name: Sarah
+    surname: Johnson
+    pay: 5500
+    field: Housekeeping
+    phone_number: "234-567-8901"
+
+  - name: Michael
+    surname: Brown
+    pay: 6000
+    field: Management
+    phone_number: "345-678-9012"
+
+  - name: Emily
+    surname: Davis
+    pay: 4700
+    field: Kitchen
+    phone_number: "456-789-0123"
+
+  - name: Robert
+    surname: Wilson
+    pay: 4800
+    field: Maintenance
+    phone_number: "567-890-1234"
+
+  - name: Jessica
+    surname: Martinez
+    pay: 52000
+    field: Concierge
+    phone_number: "678-901-2345"
+
+  - name: David
+    surname: Anderson
+    pay: 5300
+    field: Security
+    phone_number: "789-012-3456"

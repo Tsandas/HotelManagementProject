@@ -1,37 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="586.0" prefWidth="911.0" stylesheets="@../../../css/HomePage.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="586.0" prefWidth="911.0" stylesheets="@../../../css/HomePage.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.hotelmanagementproject.AdminHomePage">
    <children>
-      <AnchorPane id="headerAnchorPane" layoutX="16.0" layoutY="4.0" prefHeight="114.0" prefWidth="887.0">
+      <HBox id="topBar" alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="911.0" spacing="15">
          <children>
-            <HBox alignment="CENTER" layoutX="136.0" layoutY="3.0" prefHeight="107.0" prefWidth="614.0">
+            <Label style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: white;" text="Admin Dashboard" />
+         </children>
+      </HBox>
+
+      <VBox id="sideMenu" layoutX="0.0" layoutY="60.0" prefHeight="526.0" prefWidth="220.0" spacing="35.0" style="-fx-background-color: #1A252F; -fx-padding: 20;">
+         <children>
+            <Button prefHeight="42.0" prefWidth="160.0" style="-fx-background-color: #1F2D3A; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 5; -fx-background-radius: 5; -fx-padding: 10;" text="Back" />
+            <Button prefHeight="42.0" prefWidth="160.0" style="-fx-background-color: #1F2D3A; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 5; -fx-background-radius: 5; -fx-padding: 10;" text="Staff Manager" />
+            <Button prefHeight="42.0" prefWidth="160.0" style="-fx-background-color: #1F2D3A; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 5; -fx-background-radius: 5; -fx-padding: 10;" text="Room Availability" />
+            <Button prefHeight="42.0" prefWidth="160.0" style="-fx-background-color: #1F2D3A; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 5; -fx-background-radius: 5; -fx-padding: 10;" text="Monthly Expenses" />
+         </children>
+      </VBox>
+
+      <AnchorPane layoutX="220.0" layoutY="60.0" prefHeight="526.0" prefWidth="691.0">
+
+         <children>
+            <Pane id="paneDash" layoutX="20.0" layoutY="20.0" prefHeight="150.0" prefWidth="651.0" style="-fx-background-color: #F7F9FB; -fx-border-radius: 10; -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 10, 0, 0, 5);">
                <children>
-                  <Label text="DASHBOARD" HBox.hgrow="ALWAYS">
-                     <font>
-                        <Font size="56.0" />
-                     </font>
-                  </Label>
+                  <Label fx:id="stfmng" layoutX="30.0" layoutY="40.0" style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #34495E;" text="Staff Manager" />
+                  <Label fx:id="totalStaffLabel" layoutX="30.0" layoutY="80.0" style="-fx-font-size: 18px; -fx-font-weight: normal; -fx-text-fill: #34495E;" text="Total Staff: 120" />
                </children>
-            </HBox>
+            </Pane>
+
+            <Pane id="paneDash" layoutX="20.0" layoutY="190.0" prefHeight="150.0" prefWidth="651.0" style="-fx-background-color: #F7F9FB; -fx-border-radius: 10; -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 10, 0, 0, 5);">
+               <children>
+                  <Label layoutX="30.0" layoutY="40.0" style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #34495E;" text="Room Availability" />
+                  <PieChart fx:id="roomAvailabilityChart" layoutX="330.0" prefHeight="150.0" prefWidth="266.0" />
+               </children>
+            </Pane>
+
+            <Pane id="paneDash" layoutX="20.0" layoutY="360.0" prefHeight="150.0" prefWidth="651.0" style="-fx-background-color: #F7F9FB; -fx-border-radius: 10; -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 10, 0, 0, 5);">
+               <children>
+                  <Label layoutX="30.0" layoutY="40.0" style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #34495E;" text="Monthly Expenses" />
+                  <Label fx:id="monthlyExpensesLabel" layoutX="30.0" layoutY="80.0" style="-fx-font-size: 18px; -fx-font-weight: normal; -fx-text-fill: #34495E;" text="Total Expenses: $5000" />
+               </children>
+            </Pane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutY="118.0" prefHeight="242.0" prefWidth="466.0">
-         <children>
-            <Pane id="paneDash" layoutX="15.0" layoutY="14.0" prefHeight="214.0" prefWidth="436.0" />
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="449.0" layoutY="118.0" prefHeight="242.0" prefWidth="466.0">
-         <children>
-            <Pane id="paneDash" layoutX="15.0" layoutY="14.0" prefHeight="214.0" prefWidth="436.0" />
-         </children>
-      </AnchorPane>
-      <AnchorPane id="paneDash" layoutX="11.0" layoutY="364.0" prefHeight="194.0" prefWidth="887.0" />
    </children>
 </AnchorPane>

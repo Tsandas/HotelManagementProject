@@ -1,0 +1,15 @@
+expenses:
+  - expense: Electricity Bill
+    value: 15000
+
+  - expense: Water Bill
+    value: 6000
+
+  - expense: Internet Service
+    value: 3000
+
+  - expense: Maintenance Supplies
+    value: 12000
+
+  - expense: Cleaning Services
+    value: 8000

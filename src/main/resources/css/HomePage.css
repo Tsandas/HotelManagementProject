@@ -1,16 +1,48 @@
-#headerAnchorPane{
-    -fx-background-color: #add8e6;
-    -fx-background-radius: 15;
-    -fx-border-radius: 15;
+#topBar {
+    -fx-background-color: #34495E;
+    -fx-padding: 10;
+    -fx-alignment: center-left;
+    -fx-border-radius: 5;
+}
+
+#sideMenu {
+    -fx-background-color: #1A252F;
+    -fx-padding: 15;
+    -fx-border-radius: 5;
+
+}
+
+#sideMenu Button {
+    -fx-background-color: #1F2D3A;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-border-radius: 5;
+    -fx-padding: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 5, 0, 0, 2);
+    -fx-cursor: hand;
+}
+
+#sideMenu Button:hover {
+    -fx-background-color: #2A3D4F;
 }
 
 #paneDash {
-    -fx-background-color: #add8e6;
-    -fx-background-radius: 15;
-    -fx-border-radius: 15;
+    -fx-background-color: #F7F9FB;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 10, 0, 0, 5);
 }
 
-.text-field {
-     -fx-alignment: center-left;
-     -fx-background-color: black;
+Label {
+    -fx-font-family: 'Arial', sans-serif;
+    -fx-text-fill: #34495E;
+}
+
+Button {
+    -fx-font-family: 'Arial', sans-serif;
+}
+
+AnchorPane {
+    -fx-background-color: #E5E8EF;
 }

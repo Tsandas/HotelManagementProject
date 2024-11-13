@@ -53,6 +53,12 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>1.32</version> <!-- Replace with the latest version -->
+        </dependency>
+
     </dependencies>
 
     <build>
