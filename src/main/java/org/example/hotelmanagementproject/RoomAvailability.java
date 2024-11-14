@@ -1,6 +1,5 @@
 package org.example.hotelmanagementproject;
 
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -18,11 +17,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-
-public class MyBookings {
+public class RoomAvailability {
 
     @FXML
-    private TableView<Rooms> bookedRoomsTable;
+    private Button btnBack;
+
+    @FXML
+    private TableView<Rooms> roomsTable;
     @FXML
     private TableColumn<Rooms, Integer> colRoomId;
     @FXML
@@ -30,28 +31,27 @@ public class MyBookings {
     @FXML
     private TableColumn<Rooms, String> colAmenities;
     @FXML
-    private Button btnBack;
+    private TableColumn<Rooms, Boolean> colAvailability;
 
     @FXML
     public void initialize() {
         colRoomId.setCellValueFactory(new PropertyValueFactory<>("roomId"));
         colRoomType.setCellValueFactory(new PropertyValueFactory<>("roomType"));
         colAmenities.setCellValueFactory(new PropertyValueFactory<>("amenities"));
+        colAvailability.setCellValueFactory(new PropertyValueFactory<>("available"));
 
         loadBookedRooms();
     }
 
     private void loadBookedRooms() {
         List<Rooms> rooms = getRoomList();
-        List<Rooms> bookedRooms = rooms.stream()
-                .filter(room -> room.getAvailable())
+        List<Rooms> allRooms = rooms.stream()
                 .collect(Collectors.toList());
-        bookedRoomsTable.getItems().setAll(bookedRooms);
+        roomsTable.getItems().setAll(allRooms);
     }
 
-
     public static List<Rooms> getRoomList() {
-        InputStream inputStream = MyBookings.class.getResourceAsStream("/Data/rooms.yaml");
+        InputStream inputStream = RoomAvailability.class.getResourceAsStream("/Data/rooms.yaml");
         if (inputStream == null) {
             throw new RuntimeException("YAML file not found.");
         }
@@ -71,7 +71,6 @@ public class MyBookings {
             Rooms room = new Rooms(roomId, roomType, amenities, available);
             roomsList.add(room);
         }
-
         return roomsList;
     }
 
@@ -131,5 +130,10 @@ public class MyBookings {
         stage.setResizable(false);
         stage.setScene(scene);
     }
+
+
+
+
+
 
 }

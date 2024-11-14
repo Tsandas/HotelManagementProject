@@ -20,7 +20,7 @@
          <children>
             <Button fx:id="btnBack" onAction="#onButtonBack" prefHeight="42.0" prefWidth="160.0" style="-fx-background-color: #1F2D3A; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 5; -fx-background-radius: 5; -fx-padding: 10;" text="Back" />
             <Button prefHeight="42.0" prefWidth="160.0" style="-fx-background-color: #1F2D3A; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 5; -fx-background-radius: 5; -fx-padding: 10;" text="Staff Manager" />
-            <Button prefHeight="42.0" prefWidth="160.0" style="-fx-background-color: #1F2D3A; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 5; -fx-background-radius: 5; -fx-padding: 10;" text="Room Availability" />
+            <Button fx:id="btnRoomAvailability" onAction="#onButtonRoomAvailability" prefHeight="42.0" prefWidth="160.0" style="-fx-background-color: #1F2D3A; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 5; -fx-background-radius: 5; -fx-padding: 10;" text="Room Availability" />
             <Button prefHeight="42.0" prefWidth="160.0" style="-fx-background-color: #1F2D3A; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 5; -fx-background-radius: 5; -fx-padding: 10;" text="Monthly Expenses" />
          </children>
       </VBox>

@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:controller="org.example.hotelmanagementproject.MyBookings" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="586.0" prefWidth="911.0" stylesheets="@../../../css/HomePage.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="586.0" prefWidth="911.0" stylesheets="@../../../css/HomePage.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.hotelmanagementproject.MyBookings">
     <children>
         <HBox id="topBar" alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="911.0" spacing="15">
             <children>
@@ -18,7 +18,7 @@
 
         <VBox id="sideMenu" layoutX="0.0" layoutY="60.0" prefHeight="526.0" prefWidth="220.0" spacing="35.0" style="-fx-background-color: #1A252F; -fx-padding: 20;">
             <children>
-                <Button fx:id="btnBack" prefHeight="42.0" prefWidth="160.0" style="-fx-background-color: #1F2D3A; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 5; -fx-background-radius: 5; -fx-padding: 10;" text="Back" />
+                <Button fx:id="btnBack" onAction="#onButtonBack" prefHeight="42.0" prefWidth="160.0" style="-fx-background-color: #1F2D3A; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 5; -fx-background-radius: 5; -fx-padding: 10;" text="Back" />
                 <Button prefHeight="42.0" prefWidth="160.0" style="-fx-background-color: #1F2D3A; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 5; -fx-background-radius: 5; -fx-padding: 10;" text="My Bookings" />
                 <Button prefHeight="42.0" prefWidth="160.0" style="-fx-background-color: #1F2D3A; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 5; -fx-background-radius: 5; -fx-padding: 10;" text="Book rooms" />
             </children>
@@ -28,9 +28,9 @@
             <children>
                 <TableView fx:id="bookedRoomsTable" layoutX="20.0" layoutY="44.0" prefHeight="400.0" prefWidth="651.0" style="-fx-background-color: #F7F9FB; -fx-border-radius: 10; -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 10, 0, 0, 5);">
                     <columns>
-                        <TableColumn fx:id="colRoomId" text="Room ID" prefWidth="100.0" />
-                        <TableColumn fx:id="colRoomType" text="Room Type" prefWidth="150.0" />
-                        <TableColumn fx:id="colAmenities" text="Amenities" prefWidth="300.0" />
+                        <TableColumn fx:id="colRoomId" prefWidth="100.0" text="Room ID" />
+                        <TableColumn fx:id="colRoomType" prefWidth="150.0" text="Room Type" />
+                        <TableColumn fx:id="colAmenities" prefWidth="300.0" text="Amenities" />
                     </columns>
                 </TableView>
             </children>

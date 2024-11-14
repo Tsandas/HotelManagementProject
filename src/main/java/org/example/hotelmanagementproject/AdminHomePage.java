@@ -24,6 +24,8 @@ public class AdminHomePage {
     private Label monthlyExpensesLabel;
     @FXML
     private Button btnBack;
+    @FXML
+    private Button btnRoomAvailability;
 
 
     public void initialize() {
@@ -45,6 +47,18 @@ public class AdminHomePage {
         scene.getStylesheets().add(cssUrl.toUri().toString());
         Stage stage = (Stage) btnBack.getScene().getWindow();
         stage.setTitle("HotelHub");
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void onButtonRoomAvailability() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("RoomAvailability.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        Path cssUrl = Paths.get("src/main/resources/css/HomePage.css");
+        scene.getStylesheets().add(cssUrl.toUri().toString());
+        Stage stage = (Stage) btnBack.getScene().getWindow();
+        stage.setTitle("Room Availability");
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
