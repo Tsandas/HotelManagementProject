@@ -1,18 +1,18 @@
 #mainAnchorPane {
-    -fx-background-color: #E5E8EF; /* Soft gray background similar to the admin page */
+    -fx-background-color: #E5E8EF;
 }
 
 .titleLabel {
     -fx-font-size: 36px;
     -fx-font-weight: bold;
-    -fx-text-fill: #34495E; /* Dark gray for titles */
+    -fx-text-fill: #34495E;
     -fx-padding: 0 0 20 0;
 }
 
 .subTitleLabel {
     -fx-font-size: 24px;
     -fx-font-weight: bold;
-    -fx-text-fill: #34495E; /* Matching subheading style */
+    -fx-text-fill: #34495E;
 }
 
 .inputField {

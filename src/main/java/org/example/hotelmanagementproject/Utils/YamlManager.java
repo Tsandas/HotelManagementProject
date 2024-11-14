@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class YamlManager {
 
-    public static Map<String, Integer> roomAvailability(){
+    public static Map<String, Integer> roomAvailability() {
         InputStream inputStream = AdminHomePage.class.getResourceAsStream("/Data/rooms.yaml");
         if (inputStream == null) {
             throw new RuntimeException("YAML file not found.");
@@ -29,7 +29,7 @@ public class YamlManager {
         return result;
     }
 
-    public static Double staffMonthlySalaryTotal(){
+    public static Double staffMonthlySalaryTotal() {
         InputStream inputStream = AdminHomePage.class.getResourceAsStream("/Data/staff.yaml");
         if (inputStream == null) {
             throw new RuntimeException("YAML file not found.");
@@ -45,7 +45,8 @@ public class YamlManager {
         }
         return totalSalaries;
     }
-    public static int getTotalStaff(){
+
+    public static int getTotalStaff() {
         InputStream inputStream = AdminHomePage.class.getResourceAsStream("/Data/staff.yaml");
         if (inputStream == null) {
             throw new RuntimeException("YAML file not found.");
@@ -57,7 +58,7 @@ public class YamlManager {
     }
 
 
-    public static double getMonthlyExpenses(){
+    public static double getMonthlyExpenses() {
         InputStream inputStream = AdminHomePage.class.getResourceAsStream("/Data/expenses.yaml");
         if (inputStream == null) {
             throw new RuntimeException("YAML file not found.");

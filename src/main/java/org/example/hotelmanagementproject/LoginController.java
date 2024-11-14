@@ -3,16 +3,13 @@ package org.example.hotelmanagementproject;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Objects;
 
 
@@ -23,8 +20,8 @@ public class LoginController {
     private final String userUsername = "user";
     private final String userPassword = "user";
 
-    private boolean btnAdminPressed = false;
-    private boolean btnUserPressed = false;
+    private final boolean btnAdminPressed = false;
+    private final boolean btnUserPressed = false;
 
     @FXML
     private Button btnAdmin;
@@ -75,7 +72,7 @@ public class LoginController {
                     FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminHomePage.fxml"));
                     Scene scene = new Scene(fxmlLoader.load());
                     stage.setTitle("Admin Home Page");
-                    stage.setResizable(true);
+                    stage.setResizable(false);
                     stage.setScene(scene);
                 } else {
                     Alert alert = new Alert(AlertType.WARNING);
@@ -90,8 +87,8 @@ public class LoginController {
                     Stage stage = (Stage) btnLogin.getScene().getWindow();
                     FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("UserHomePage.fxml"));
                     Scene scene = new Scene(fxmlLoader.load());
-                    stage.setTitle("Admin Home Page");
-                    stage.setResizable(true);
+                    stage.setTitle("User Home Page");
+                    stage.setResizable(false);
                     stage.setScene(scene);
                 } else {
                     Alert alert = new Alert(AlertType.WARNING);
