@@ -57,7 +57,7 @@ public class AdminHomePage {
         Scene scene = new Scene(fxmlLoader.load());
         Path cssUrl = Paths.get("src/main/resources/css/HomePage.css");
         scene.getStylesheets().add(cssUrl.toUri().toString());
-        Stage stage = (Stage) btnBack.getScene().getWindow();
+        Stage stage = (Stage) btnRoomAvailability.getScene().getWindow();
         stage.setTitle("Room Availability");
         stage.setResizable(false);
         stage.setScene(scene);

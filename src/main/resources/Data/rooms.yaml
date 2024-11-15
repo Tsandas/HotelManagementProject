@@ -37,12 +37,6 @@ rooms:
   amenities:
   - Wi-Fi
   - TV
-- room_id: 201
-  available: true
-  room_type: Single
-  amenities:
-  - Wi-Fi
-  - TV
 - room_id: 202
   available: true
   room_type: Double
@@ -70,11 +64,19 @@ rooms:
   available: true
   room_type: Single
   amenities:
-  - Wi-Fi
-  - TV
-  - Safe
+  - Wi-Fi, tv
 - room_id: 130
   amenities:
   - hoes
   available: true
   room_type: Double
+- room_id: 201
+  amenities:
+  - money, hoes
+  available: true
+  room_type: double
+- room_id: 220
+  amenities:
+  - hoes
+  available: false
+  room_type: someshi

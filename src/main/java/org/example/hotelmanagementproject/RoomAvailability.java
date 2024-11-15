@@ -1,5 +1,7 @@
 package org.example.hotelmanagementproject;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -171,29 +173,12 @@ public class RoomAvailability {
 
     }
 
-//    @FXML
-//    private TextField txtAmenities;
-//
-//    @FXML
-//    private TextField txtAvailability;
-//
-//    @FXML
-//    private TextField txtRoomId;
-//
-//    @FXML
-//    private TextField txtRoomType;
-
     public void onButtonAdd(){
-
-        //add room
-        //YamlManager.addRoom(120,true,"double", Arrays.asList("hoes", "TV", "Mini-bar"));
-        boolean av = Boolean.parseBoolean(txtAvailability.getText());
-        int id  = Integer.parseInt(txtRoomId.getText());
-        String rt = String.valueOf(txtRoomType.getText());
-        List<String> s = Collections.singletonList(txtAmenities.getText());
-        System.out.println(id + " " + av + " " + rt + " " + s);
-        YamlManager.addRoom(id,av,rt, s);
-
+        boolean availability = Boolean.parseBoolean(txtAvailability.getText());
+        int roomId  = Integer.parseInt(txtRoomId.getText());
+        String roomType = String.valueOf(txtRoomType.getText());
+        List<String> amenities = Collections.singletonList(txtAmenities.getText());
+        YamlManager.addRoom(roomId,availability,roomType, amenities);
     }
 
 
