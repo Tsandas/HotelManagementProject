@@ -3,18 +3,15 @@ package org.example.hotelmanagementproject;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import org.example.hotelmanagementproject.Utils.YamlManager;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class RoomAvailability {
@@ -32,6 +29,18 @@ public class RoomAvailability {
     private TableColumn<Rooms, String> colAmenities;
     @FXML
     private TableColumn<Rooms, Boolean> colAvailability;
+
+    @FXML
+    private TextField txtAmenities;
+
+    @FXML
+    private TextField txtAvailability;
+
+    @FXML
+    private TextField txtRoomId;
+
+    @FXML
+    private TextField txtRoomType;
 
     @FXML
     public void initialize() {
@@ -124,16 +133,68 @@ public class RoomAvailability {
     @FXML
     private void onButtonBack() throws IOException {
         Stage stage = (Stage) btnBack.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("UserHomePage.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminHomePage.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("User Home Page");
+        stage.setTitle("Admin Dashboard");
         stage.setResizable(false);
         stage.setScene(scene);
     }
 
+    public void onButtonRemoveRoom() {
 
+        if (txtRoomId.getText() == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Remove room warning");
+            alert.setHeaderText("Room Id");
+            alert.setContentText("Provide valid room Id");
+            alert.showAndWait();
+        }
 
+        try {
+            int removedRoom = Integer.parseInt(txtRoomId.getText());
+            if (YamlManager.roomAvailable(removedRoom)) {
+                YamlManager.removeRoomById(removedRoom);
+            } else {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Remove room warning");
+                alert.setHeaderText("Room Id");
+                alert.setContentText("Provide valid room Id, where the room is not currently occupied");
+                alert.showAndWait();
+            }
+        } catch (NumberFormatException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Remove room warning");
+            alert.setHeaderText("Room Id");
+            alert.setContentText("Provide valid room Id, where the room is not currently occupied");
+            alert.showAndWait();
+        }
 
+    }
+
+//    @FXML
+//    private TextField txtAmenities;
+//
+//    @FXML
+//    private TextField txtAvailability;
+//
+//    @FXML
+//    private TextField txtRoomId;
+//
+//    @FXML
+//    private TextField txtRoomType;
+
+    public void onButtonAdd(){
+
+        //add room
+        //YamlManager.addRoom(120,true,"double", Arrays.asList("hoes", "TV", "Mini-bar"));
+        boolean av = Boolean.parseBoolean(txtAvailability.getText());
+        int id  = Integer.parseInt(txtRoomId.getText());
+        String rt = String.valueOf(txtRoomType.getText());
+        List<String> s = Collections.singletonList(txtAmenities.getText());
+        System.out.println(id + " " + av + " " + rt + " " + s);
+        YamlManager.addRoom(id,av,rt, s);
+
+    }
 
 
 }

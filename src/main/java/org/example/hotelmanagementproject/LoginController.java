@@ -36,7 +36,6 @@ public class LoginController {
 
     @FXML
     private void initialize() {
-        // Set up button actions
         btnAdmin.setOnAction(event -> handleButtonActivation(btnAdmin, "admin"));
         btnUser.setOnAction(event -> handleButtonActivation(btnUser, "user"));
     }
@@ -44,13 +43,11 @@ public class LoginController {
     private String selectedRole = "";
 
     private void handleButtonActivation(Button button, String role) {
-        // Reset button states without reassigning event handlers
         btnAdmin.getStyleClass().remove("active");
         btnUser.getStyleClass().remove("active");
         btnAdmin.setDisable(false);
         btnUser.setDisable(false);
 
-        // Activate the clicked button
         button.getStyleClass().add("active");
         button.setDisable(true);
         selectedRole = role;

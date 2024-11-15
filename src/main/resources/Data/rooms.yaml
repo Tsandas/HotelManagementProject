@@ -1,41 +1,80 @@
 rooms:
-  - room_id: 101
-    available: true
-    room_type: "Single"
-    amenities: ["Wi-Fi", "TV", "Mini-bar"]
-  - room_id: 102
-    available: false
-    room_type: "Double"
-    amenities: ["Wi-Fi", "TV"]
-  - room_id: 103
-    available: true
-    room_type: "Suite"
-    amenities: ["Wi-Fi", "TV", "Mini-bar", "Jacuzzi"]
-  - room_id: 104
-    available: false
-    room_type: "Single"
-    amenities: ["Wi-Fi", "TV"]
-  - room_id: 105
-    available: false
-    room_type: "Double"
-    amenities: ["Wi-Fi", "TV"]
-  - room_id: 106
-    available: false
-    room_type: "Suite"
-    amenities: ["Wi-Fi", "TV", "Mini-bar", "Jacuzzi"]
-  - room_id: 107
-    available: false
-    room_type: "Single"
-    amenities: ["Wi-Fi", "TV"]
-  - room_id: 108
-    available: true
-    room_type: "Double"
-    amenities: ["Wi-Fi", "TV"]
-  - room_id: 109
-    available: false
-    room_type: "Single"
-    amenities: ["Wi-Fi", "TV"]
-  - room_id: 110
-    available: true
-    room_type: "Suite"
-    amenities: ["Wi-Fi", "TV", "Mini-bar", "Jacuzzi"]
+- room_id: 102
+  available: false
+  room_type: Double
+  amenities:
+  - Wi-Fi
+  - TV
+- room_id: 104
+  available: false
+  room_type: Single
+  amenities:
+  - Wi-Fi
+  - TV
+- room_id: 105
+  available: false
+  room_type: Double
+  amenities:
+  - Wi-Fi
+  - TV
+- room_id: 106
+  available: false
+  room_type: Suite
+  amenities:
+  - Wi-Fi
+  - TV
+  - Mini-bar
+  - Jacuzzi
+- room_id: 107
+  available: false
+  room_type: Single
+  amenities:
+  - Wi-Fi
+  - TV
+- room_id: 109
+  available: false
+  room_type: Single
+  amenities:
+  - Wi-Fi
+  - TV
+- room_id: 201
+  available: true
+  room_type: Single
+  amenities:
+  - Wi-Fi
+  - TV
+- room_id: 202
+  available: true
+  room_type: Double
+  amenities:
+  - Wi-Fi
+  - TV
+  - Mini-bar
+- room_id: 203
+  available: true
+  room_type: Suite
+  amenities:
+  - Wi-Fi
+  - TV
+  - Mini-bar
+  - Jacuzzi
+- room_id: 204
+  available: true
+  room_type: Deluxe
+  amenities:
+  - Wi-Fi
+  - TV
+  - Mini-bar
+  - Private Balcony
+- room_id: 205
+  available: true
+  room_type: Single
+  amenities:
+  - Wi-Fi
+  - TV
+  - Safe
+- room_id: 130
+  amenities:
+  - hoes
+  available: true
+  room_type: Double
