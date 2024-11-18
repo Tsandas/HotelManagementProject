@@ -1,6 +1,5 @@
 package org.example.hotelmanagementproject;
 
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -22,12 +21,15 @@ public class UserHomePage {
     private Button btnMyBookings;
 
     @FXML
+    private Button btnBookRooms;
+
+    @FXML
     private Label roomsAvailableLabel;
 
     @FXML
     private Label roomsBookedLabel;
 
-    public void initialize() {
+    public void initialize() throws IOException {
         roomsAvailableLabel.setText(String.format("Rooms available for booking : %s", YamlManager.roomAvailability().get("total") - YamlManager.roomAvailability().get("available")));
         roomsBookedLabel.setText(String.format("Booked rooms : %s", YamlManager.roomAvailability().get("available")));
     }
@@ -52,6 +54,18 @@ public class UserHomePage {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MyBookings.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("My Bookings");
+        stage.setResizable(false);
+        stage.setScene(scene);
+
+    }
+
+    @FXML
+    void onButtonBookRooms() throws IOException {
+
+        Stage stage = (Stage) btnBookRooms.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("BookRoom.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("Book Room");
         stage.setResizable(false);
         stage.setScene(scene);
 

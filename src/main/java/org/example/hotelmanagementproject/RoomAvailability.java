@@ -8,15 +8,20 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import org.example.hotelmanagementproject.Utils.Rooms;
 import org.example.hotelmanagementproject.Utils.YamlManager;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class RoomAvailability {
+
+    private ObservableList<Rooms> roomsObservableList = FXCollections.observableArrayList();
 
     @FXML
     private Button btnBack;
@@ -45,7 +50,7 @@ public class RoomAvailability {
     private TextField txtRoomType;
 
     @FXML
-    public void initialize() {
+    public void initialize() throws IOException {
         colRoomId.setCellValueFactory(new PropertyValueFactory<>("roomId"));
         colRoomType.setCellValueFactory(new PropertyValueFactory<>("roomType"));
         colAmenities.setCellValueFactory(new PropertyValueFactory<>("amenities"));
@@ -54,15 +59,17 @@ public class RoomAvailability {
         loadBookedRooms();
     }
 
-    private void loadBookedRooms() {
+    private void loadBookedRooms() throws IOException {
         List<Rooms> rooms = getRoomList();
-        List<Rooms> allRooms = rooms.stream()
-                .collect(Collectors.toList());
-        roomsTable.getItems().setAll(allRooms);
+        roomsObservableList = FXCollections.observableArrayList(rooms);
+        roomsTable.setItems(roomsObservableList);
+        roomsTable.refresh();
     }
 
-    public static List<Rooms> getRoomList() {
-        InputStream inputStream = RoomAvailability.class.getResourceAsStream("/Data/rooms.yaml");
+    public static List<Rooms> getRoomList() throws IOException {
+        String yamlFilePath = Paths.get("src/main/resources/Data/rooms.yaml").toAbsolutePath().toString();
+        InputStream inputStream = Files.newInputStream(Paths.get(yamlFilePath));
+
         if (inputStream == null) {
             throw new RuntimeException("YAML file not found.");
         }
@@ -83,53 +90,6 @@ public class RoomAvailability {
             roomsList.add(room);
         }
         return roomsList;
-    }
-
-    public static class Rooms {
-
-        private int roomId;
-        public String roomType;
-        private String amenities;
-        private boolean available;
-
-        public Rooms(int roomId, String roomType, String amenities, boolean available) {
-            this.roomId = roomId;
-            this.roomType = roomType;
-            this.amenities = amenities;
-            this.available = available;
-        }
-
-        public int getRoomId() {
-            return roomId;
-        }
-
-        public String getRoomType() {
-            return roomType;
-        }
-
-        public String getAmenities() {
-            return amenities;
-        }
-
-        public boolean getAvailable() {
-            return available;
-        }
-
-        public void setRoomId(int roomId) {
-            this.roomId = roomId;
-        }
-
-        public void setAmenities(String amenities) {
-            this.amenities = amenities;
-        }
-
-        public void setRoomType(String roomType) {
-            this.roomType = roomType;
-        }
-
-        public void setAvailable(Boolean available) {
-            this.available = available;
-        }
     }
 
     @FXML
@@ -163,7 +123,7 @@ public class RoomAvailability {
                 alert.setContentText("Provide valid room Id, where the room is not currently occupied");
                 alert.showAndWait();
             }
-        } catch (NumberFormatException e) {
+        } catch (NumberFormatException | IOException e) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Remove room warning");
             alert.setHeaderText("Room Id");
@@ -173,12 +133,23 @@ public class RoomAvailability {
 
     }
 
-    public void onButtonAdd(){
-        boolean availability = Boolean.parseBoolean(txtAvailability.getText());
-        int roomId  = Integer.parseInt(txtRoomId.getText());
-        String roomType = String.valueOf(txtRoomType.getText());
-        List<String> amenities = Collections.singletonList(txtAmenities.getText());
-        YamlManager.addRoom(roomId,availability,roomType, amenities);
+    public void onButtonAdd() throws IOException {
+
+        boolean av = Boolean.parseBoolean(txtAvailability.getText());
+        int roomId = Integer.parseInt(txtRoomId.getText());
+        String rt = String.valueOf(txtRoomType.getText());
+        List<String> s = Collections.singletonList(txtAmenities.getText());
+
+        if(!YamlManager.roomExists(roomId)){
+            System.out.println(roomId + " " + av + " " + rt + " " + s);
+            YamlManager.addRoom(roomId, av, rt, s);
+        }else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Room warning");
+            alert.setHeaderText("Room Id");
+            alert.setContentText("A room with such id already exists");
+            alert.showAndWait();
+        }
     }
 
 

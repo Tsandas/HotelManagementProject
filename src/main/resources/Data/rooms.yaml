@@ -26,13 +26,13 @@ rooms:
   - Mini-bar
   - Jacuzzi
 - room_id: 107
-  available: false
+  available: true
   room_type: Single
   amenities:
   - Wi-Fi
   - TV
 - room_id: 109
-  available: false
+  available: true
   room_type: Single
   amenities:
   - Wi-Fi
@@ -45,7 +45,7 @@ rooms:
   - TV
   - Mini-bar
 - room_id: 203
-  available: true
+  available: false
   room_type: Suite
   amenities:
   - Wi-Fi
@@ -67,8 +67,8 @@ rooms:
   - Wi-Fi, tv
 - room_id: 130
   amenities:
-  - hoes
-  available: true
+  - goodpeople
+  available: false
   room_type: Double
 - room_id: 201
   amenities:

@@ -20,9 +20,6 @@ public class LoginController {
     private final String userUsername = "user";
     private final String userPassword = "user";
 
-    private final boolean btnAdminPressed = false;
-    private final boolean btnUserPressed = false;
-
     @FXML
     private Button btnAdmin;
     @FXML

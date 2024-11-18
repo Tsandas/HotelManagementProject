@@ -19,7 +19,7 @@
          <children>
             <Button fx:id="btnBack" onAction="#onButtonBack" prefHeight="42.0" prefWidth="160.0" style="-fx-background-color: #1F2D3A; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 5; -fx-background-radius: 5; -fx-padding: 10;" text="Back" />
             <Button fx:id="btnMyBookings" onAction="#onButtonMyBookings" prefHeight="42.0" prefWidth="160.0" style="-fx-background-color: #1F2D3A; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 5; -fx-background-radius: 5; -fx-padding: 10;" text="My Bookings" />
-            <Button prefHeight="42.0" prefWidth="160.0" style="-fx-background-color: #1F2D3A; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 5; -fx-background-radius: 5; -fx-padding: 10;" text="Book rooms" />
+            <Button fx:id="btnBookRooms" onAction="#onButtonBookRooms" prefHeight="42.0" prefWidth="160.0" style="-fx-background-color: #1F2D3A; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 5; -fx-background-radius: 5; -fx-padding: 10;" text="Book rooms" />
          </children>
       </VBox>
 

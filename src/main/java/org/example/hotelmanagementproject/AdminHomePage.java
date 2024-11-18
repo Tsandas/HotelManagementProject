@@ -28,7 +28,7 @@ public class AdminHomePage {
     private Button btnRoomAvailability;
 
 
-    public void initialize() {
+    public void initialize() throws IOException {
         totalStaffLabel.setText(String.format("Total staff: %s  Total monthly salaries: $%s", YamlManager.getTotalStaff(), YamlManager.staffMonthlySalaryTotal()));
         monthlyExpensesLabel.setText(String.format("Total monthly expenses: $%s", YamlManager.getMonthlyExpenses()));
 
