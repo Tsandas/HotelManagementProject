@@ -150,7 +150,6 @@ public class RoomAvailability {
             alert.setContentText("A room with such id already exists");
             alert.showAndWait();
         }
-
     }
 
 

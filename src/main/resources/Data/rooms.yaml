@@ -37,12 +37,6 @@ rooms:
   amenities:
   - Wi-Fi
   - TV
-- room_id: 201
-  available: true
-  room_type: Single
-  amenities:
-  - Wi-Fi
-  - TV
 - room_id: 202
   available: true
   room_type: Double
@@ -66,8 +60,23 @@ rooms:
   - TV
   - Mini-bar
   - Private Balcony
+- room_id: 205
+  available: true
+  room_type: Single
+  amenities:
+  - Wi-Fi, tv
 - room_id: 130
   amenities:
   - goodpeople
   available: false
   room_type: Double
+- room_id: 201
+  amenities:
+  - money, hoes
+  available: true
+  room_type: double
+- room_id: 220
+  amenities:
+  - hoes
+  available: false
+  room_type: someshi
