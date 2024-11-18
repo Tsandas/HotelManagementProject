@@ -18,7 +18,7 @@ rooms:
   - Wi-Fi
   - TV
 - room_id: 106
-  available: true
+  available: false
   room_type: Suite
   amenities:
   - Wi-Fi
@@ -71,8 +71,3 @@ rooms:
   - goodpeople
   available: false
   room_type: Double
-- room_id: 205
-  amenities:
-  - saaa
-  available: false
-  room_type: saaa
