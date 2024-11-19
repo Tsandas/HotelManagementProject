@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class YamlManager {
 
@@ -261,8 +262,9 @@ public class YamlManager {
         return roomsList;
     }
 
-    public static Double staffMonthlySalaryTotal() {
-        InputStream inputStream = AdminHomePage.class.getResourceAsStream("/Data/staff.yaml");
+    public static Double staffMonthlySalaryTotal() throws IOException {
+        String yamlFilePath = Paths.get("src/main/resources/Data/staff.yaml").toAbsolutePath().toString();
+        InputStream inputStream = Files.newInputStream(Paths.get(yamlFilePath));
         if (inputStream == null) {
             throw new RuntimeException("YAML file not found.");
         }
@@ -278,8 +280,9 @@ public class YamlManager {
         return totalSalaries;
     }
 
-    public static int getTotalStaff() {
-        InputStream inputStream = AdminHomePage.class.getResourceAsStream("/Data/staff.yaml");
+    public static int getTotalStaff() throws IOException {
+        String yamlFilePath = Paths.get("src/main/resources/Data/staff.yaml").toAbsolutePath().toString();
+        InputStream inputStream = Files.newInputStream(Paths.get(yamlFilePath));
         if (inputStream == null) {
             throw new RuntimeException("YAML file not found.");
         }
@@ -289,17 +292,75 @@ public class YamlManager {
         return staffList.size();
     }
 
-
-    public static double getMonthlyExpenses() {
-        InputStream inputStream = AdminHomePage.class.getResourceAsStream("/Data/expenses.yaml");
+    public static Map<String, Double> getExpensesMap() throws IOException {
+        String yamlFilePath = Paths.get("src/main/resources/Data/expenses.yaml").toAbsolutePath().toString();
+        InputStream inputStream = Files.newInputStream(Paths.get(yamlFilePath));
         if (inputStream == null) {
             throw new RuntimeException("YAML file not found.");
         }
         Yaml yaml = new Yaml();
         Map<String, List<Map<String, Object>>> data = yaml.load(inputStream);
         List<Map<String, Object>> expenses = data.get("expenses");
-        int totalValue = expenses.stream()
-                .mapToInt(expense -> (int) expense.get("value"))
+
+        return expenses.stream()
+                .collect(Collectors.toMap(
+                        exp -> (String) exp.get("expense"),
+                        exp -> (double) exp.get("value")
+                ));
+    }
+
+    public static void updateExpenseValue(String expenseName, double newValue) throws IOException {
+        String yamlFilePath = Paths.get("src/main/resources/Data/expenses.yaml").toAbsolutePath().toString();
+        InputStream inputStream = Files.newInputStream(Paths.get(yamlFilePath));
+
+        if (inputStream == null) {
+            throw new RuntimeException("YAML file not found.");
+        }
+
+        Yaml yaml = new Yaml();
+        Map<String, List<Map<String, Object>>> data = yaml.load(inputStream);
+
+        List<Map<String, Object>> expenses = data.get("expenses");
+
+        boolean found = false;
+
+        for (Map<String, Object> expense : expenses) {
+            if (expense.get("expense").equals(expenseName)) {
+                expense.put("value", newValue);
+                found = true;
+                break;
+            }
+        }
+
+        if (!found) {
+            System.out.println("Expense with name \"" + expenseName + "\" not found.");
+        } else {
+            DumperOptions options = new DumperOptions();
+            options.setPrettyFlow(true);
+            options.setDefaultFlowStyle(DumperOptions.FlowStyle.BLOCK);
+            Yaml yamlWriter = new Yaml(options);
+
+            try (FileWriter writer = new FileWriter(yamlFilePath)) {
+                yamlWriter.dump(data, writer);
+                System.out.println("Expense \"" + expenseName + "\" updated to value: " + newValue);
+            } catch (IOException e) {
+                System.out.println("Error writing to the YAML file: " + e.getMessage());
+            }
+        }
+    }
+
+
+    public static double getMonthlyExpenses() throws IOException {
+        String yamlFilePath = Paths.get("src/main/resources/Data/expenses.yaml").toAbsolutePath().toString();
+        InputStream inputStream = Files.newInputStream(Paths.get(yamlFilePath));
+        if (inputStream == null) {
+            throw new RuntimeException("YAML file not found.");
+        }
+        Yaml yaml = new Yaml();
+        Map<String, List<Map<String, Object>>> data = yaml.load(inputStream);
+        List<Map<String, Object>> expenses = data.get("expenses");
+        double totalValue = expenses.stream()
+                .mapToDouble(expense -> ((Number) expense.get("value")).doubleValue())
                 .sum();
         totalValue += staffMonthlySalaryTotal();
         return totalValue;

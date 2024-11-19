@@ -26,6 +26,8 @@ public class AdminHomePage {
     private Button btnBack;
     @FXML
     private Button btnRoomAvailability;
+    @FXML
+    private Button btnMonthlyExpenses;
 
 
     public void initialize() throws IOException {
@@ -43,8 +45,6 @@ public class AdminHomePage {
     public void onButtonBack() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("LoginStage.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        Path cssUrl = Paths.get("src/main/resources/css/LoginStage.css");
-        scene.getStylesheets().add(cssUrl.toUri().toString());
         Stage stage = (Stage) btnBack.getScene().getWindow();
         stage.setTitle("HotelHub");
         stage.setResizable(false);
@@ -55,10 +55,18 @@ public class AdminHomePage {
     public void onButtonRoomAvailability() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("RoomAvailability.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        Path cssUrl = Paths.get("src/main/resources/css/HomePage.css");
-        scene.getStylesheets().add(cssUrl.toUri().toString());
         Stage stage = (Stage) btnRoomAvailability.getScene().getWindow();
         stage.setTitle("Room Availability");
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void onButtonMonthlyExpenses() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MonthlyExpenses.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = (Stage) btnMonthlyExpenses.getScene().getWindow();
+        stage.setTitle("Monthly Expenses");
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
