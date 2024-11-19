@@ -17,15 +17,26 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class RoomAvailability {
 
     private ObservableList<Rooms> roomsObservableList = FXCollections.observableArrayList();
 
+    private void refresh(Button btn) throws IOException {
+        Stage stage = (Stage) btn.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("RoomAvailability.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("Room Availability");
+        stage.setResizable(false);
+        stage.setScene(scene);
+    }
+
     @FXML
     private Button btnBack;
-
+    @FXML
+    private Button btnRemoveRoom;
+    @FXML
+    private Button btnAddRoom;
     @FXML
     private TableView<Rooms> roomsTable;
     @FXML
@@ -36,16 +47,12 @@ public class RoomAvailability {
     private TableColumn<Rooms, String> colAmenities;
     @FXML
     private TableColumn<Rooms, Boolean> colAvailability;
-
     @FXML
     private TextField txtAmenities;
-
     @FXML
     private TextField txtAvailability;
-
     @FXML
     private TextField txtRoomId;
-
     @FXML
     private TextField txtRoomType;
 
@@ -111,11 +118,24 @@ public class RoomAvailability {
             alert.setContentText("Provide valid room Id");
             alert.showAndWait();
         }
-
         try {
             int removedRoom = Integer.parseInt(txtRoomId.getText());
             if (YamlManager.roomAvailable(removedRoom)) {
-                YamlManager.removeRoomById(removedRoom);
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Room Status");
+                alert.setHeaderText("Room Status");
+                alert.setContentText("Are you sure you want to remove this room from bookings?");
+                ButtonType yesButton = new ButtonType("Yes");
+                ButtonType noButton = new ButtonType("No");
+                alert.getButtonTypes().setAll(yesButton, noButton);
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.isPresent() && result.get() == yesButton) {
+                    YamlManager.removeRoomById(removedRoom);
+                    System.out.println("Room ID " + removedRoom + " has been removed from bookings.");
+                    refresh(btnRemoveRoom);
+                } else {
+                    System.out.println("Room removal canceled.");
+                }
             } else {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Remove room warning");
@@ -130,7 +150,6 @@ public class RoomAvailability {
             alert.setContentText("Provide valid room Id, where the room is not currently occupied");
             alert.showAndWait();
         }
-
     }
 
     public void onButtonAdd() throws IOException {
@@ -140,10 +159,24 @@ public class RoomAvailability {
         String rt = String.valueOf(txtRoomType.getText());
         List<String> s = Collections.singletonList(txtAmenities.getText());
 
-        if(!YamlManager.roomExists(roomId)){
+        if (!YamlManager.roomExists(roomId)) {
             System.out.println(roomId + " " + av + " " + rt + " " + s);
-            YamlManager.addRoom(roomId, av, rt, s);
-        }else {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Room Status");
+            alert.setHeaderText("Room Status");
+            alert.setContentText("Are you sure you want to add this room to your bookings?");
+            ButtonType yesButton = new ButtonType("Yes");
+            ButtonType noButton = new ButtonType("No");
+            alert.getButtonTypes().setAll(yesButton, noButton);
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.isPresent() && result.get() == yesButton) {
+                YamlManager.addRoom(roomId, av, rt, s);
+                System.out.println("Room ID " + roomId + " has been added for booking.");
+            } else {
+                System.out.println("Adding room canceled.");
+            }
+            refresh(btnAddRoom);
+        } else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Room warning");
             alert.setHeaderText("Room Id");

@@ -99,11 +99,10 @@ public class MyBookings {
         if (result.isPresent() && result.get() == yesButton) {
             YamlManager.changeRoomAvailabilityToTrue(roomId);
             System.out.println("Room ID " + roomId + " has been removed from bookings and availability set to true.");
-            refresh();
-
         } else {
             System.out.println("Room removal canceled.");
         }
+        refresh();
     }
 
 }

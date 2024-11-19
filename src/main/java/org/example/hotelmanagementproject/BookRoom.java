@@ -113,7 +113,6 @@ public class BookRoom {
             System.out.println("Room removal canceled.");
         }
         refresh();
-
     }
 
 }

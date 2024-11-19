@@ -70,13 +70,8 @@ rooms:
   - goodpeople
   available: false
   room_type: Double
-- room_id: 201
-  amenities:
-  - money, hoes
-  available: true
-  room_type: double
 - room_id: 220
   amenities:
-  - hoes
+  - balcony
   available: false
   room_type: someshi

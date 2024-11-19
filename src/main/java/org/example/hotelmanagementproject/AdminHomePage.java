@@ -35,8 +35,8 @@ public class AdminHomePage {
 
         int available = YamlManager.roomAvailability().get("available");
         int total = YamlManager.roomAvailability().get("total");
-        PieChart.Data availableRooms = new PieChart.Data("Available", 1 - (double) available / total);
-        PieChart.Data bookedRooms = new PieChart.Data("Booked", (double) available / total);
+        PieChart.Data availableRooms = new PieChart.Data("Available", (double) available / total);
+        PieChart.Data bookedRooms = new PieChart.Data("Booked", 1 - (double) available / total);
         roomAvailabilityChart.getData().addAll(availableRooms, bookedRooms);
     }
 
