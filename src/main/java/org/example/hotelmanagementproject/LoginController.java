@@ -30,14 +30,13 @@ public class LoginController {
     private TextField textFieldPassword;
     @FXML
     private TextField textFieldUsername;
+    private String selectedRole = "";
 
     @FXML
     private void initialize() {
         btnAdmin.setOnAction(event -> handleButtonActivation(btnAdmin, "admin"));
         btnUser.setOnAction(event -> handleButtonActivation(btnUser, "user"));
     }
-
-    private String selectedRole = "";
 
     private void handleButtonActivation(Button button, String role) {
         btnAdmin.getStyleClass().remove("active");
@@ -60,12 +59,11 @@ public class LoginController {
             alert.showAndWait();
         } else {
             if ("admin".equals(selectedRole)) {
-                if (Objects.equals(textFieldUsername.getText(), adminUsername) &&
-                        Objects.equals(textFieldPassword.getText(), adminPassword)) {
+                if (Objects.equals(textFieldUsername.getText(), adminUsername) && Objects.equals(textFieldPassword.getText(), adminPassword)) {
                     Stage stage = (Stage) btnLogin.getScene().getWindow();
                     FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminHomePage.fxml"));
                     Scene scene = new Scene(fxmlLoader.load());
-                    stage.setTitle("Admin Home Page");
+                    stage.setTitle("HotelHub");
                     stage.setResizable(false);
                     stage.setScene(scene);
                 } else {
@@ -76,12 +74,11 @@ public class LoginController {
                     alert.showAndWait();
                 }
             } else if ("user".equals(selectedRole)) {
-                if (Objects.equals(textFieldUsername.getText(), userUsername) &&
-                        Objects.equals(textFieldPassword.getText(), userPassword)) {
+                if (Objects.equals(textFieldUsername.getText(), userUsername) && Objects.equals(textFieldPassword.getText(), userPassword)) {
                     Stage stage = (Stage) btnLogin.getScene().getWindow();
                     FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("UserHomePage.fxml"));
                     Scene scene = new Scene(fxmlLoader.load());
-                    stage.setTitle("User Home Page");
+                    stage.setTitle("HotelHub");
                     stage.setResizable(false);
                     stage.setScene(scene);
                 } else {

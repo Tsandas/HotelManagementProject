@@ -56,7 +56,7 @@ public class StaffManager {
         Stage stage = (Stage) btn.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("StaffManagerPage.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Staff Manager");
+        stage.setTitle("HotelHub");
         stage.setResizable(false);
         stage.setScene(scene);
     }
@@ -65,7 +65,7 @@ public class StaffManager {
         Stage stage = (Stage) btnBack.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminHomePage.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Admin Dashboard");
+        stage.setTitle("HotelHub");
         stage.setResizable(false);
         stage.setScene(scene);
     }
@@ -74,7 +74,7 @@ public class StaffManager {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("RoomAvailability.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = (Stage) btnRoomAvailability.getScene().getWindow();
-        stage.setTitle("Room Availability");
+        stage.setTitle("HotelHub");
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
@@ -84,7 +84,7 @@ public class StaffManager {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MonthlyExpenses.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = (Stage) btnMonthlyExpenses.getScene().getWindow();
-        stage.setTitle("Monthly Expenses");
+        stage.setTitle("HotelHub");
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
@@ -149,7 +149,7 @@ public class StaffManager {
                 double pay = Double.parseDouble(txtPay.getText());
                 String field = txtField.getText();
                 String phone = txtPhone.getText();
-                YamlManager.addStaff(id,fullname,pay,field,phone);
+                YamlManager.addStaff(id, fullname, pay, field, phone);
             }
 
         } else {

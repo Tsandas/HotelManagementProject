@@ -4,7 +4,6 @@ import javafx.scene.control.Alert;
 import org.yaml.snakeyaml.DumperOptions;
 import org.yaml.snakeyaml.Yaml;
 
-import java.awt.desktop.AboutEvent;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
@@ -29,9 +28,7 @@ public class YamlManager {
 
         List<Map<String, Object>> rooms = data.get("rooms");
         int totalRooms = rooms.size();
-        long availableRooms = rooms.stream()
-                .filter(room -> Boolean.TRUE.equals(room.get("available")))
-                .count();
+        long availableRooms = rooms.stream().filter(room -> Boolean.TRUE.equals(room.get("available"))).count();
         Map<String, Integer> result = new HashMap<>();
         result.put("total", totalRooms);
         result.put("available", (int) availableRooms);
@@ -48,11 +45,7 @@ public class YamlManager {
         Map<String, List<Map<String, Object>>> data = yaml.load(inputStream);
 
         List<Map<String, Object>> rooms = data.get("rooms");
-        return rooms.stream()
-                .filter(room -> room.get("room_id").equals(targetRoom))
-                .map(room -> (Boolean) room.get("available"))
-                .findFirst()
-                .orElse(false);
+        return rooms.stream().filter(room -> room.get("room_id").equals(targetRoom)).map(room -> (Boolean) room.get("available")).findFirst().orElse(false);
     }
 
     public static void removeRoomById(int targetRoom) throws IOException {
@@ -301,11 +294,7 @@ public class YamlManager {
         Map<String, List<Map<String, Object>>> data = yaml.load(inputStream);
         List<Map<String, Object>> expenses = data.get("expenses");
 
-        return expenses.stream()
-                .collect(Collectors.toMap(
-                        exp -> (String) exp.get("expense"),
-                        exp -> (double) exp.get("value")
-                ));
+        return expenses.stream().collect(Collectors.toMap(exp -> (String) exp.get("expense"), exp -> (double) exp.get("value")));
     }
 
     public static void updateExpenseValue(String expenseName, double newValue) throws IOException {
@@ -358,9 +347,7 @@ public class YamlManager {
         Yaml yaml = new Yaml();
         Map<String, List<Map<String, Object>>> data = yaml.load(inputStream);
         List<Map<String, Object>> expenses = data.get("expenses");
-        return expenses.stream()
-                .mapToDouble(expense -> ((Number) expense.get("value")).doubleValue())
-                .sum();
+        return expenses.stream().mapToDouble(expense -> ((Number) expense.get("value")).doubleValue()).sum();
     }
 
     public static List<Staff> getStaffList() throws IOException {
@@ -406,8 +393,7 @@ public class YamlManager {
             throw new RuntimeException("Staff data not found in YAML file.");
         }
 
-        return staffData.stream()
-                .anyMatch(staff -> Integer.valueOf(targetId).equals(staff.get("id")));
+        return staffData.stream().anyMatch(staff -> Integer.valueOf(targetId).equals(staff.get("id")));
 
     }
 
@@ -455,11 +441,11 @@ public class YamlManager {
         List<Map<String, Object>> staffData = data.get("staff");
 
         Map<String, Object> newStaff = new HashMap<>();
-        newStaff.put("id",id);
-        newStaff.put("fullname",fullname);
-        newStaff.put("pay",pay);
-        newStaff.put("field",field);
-        newStaff.put("phone_number",phone);
+        newStaff.put("id", id);
+        newStaff.put("fullname", fullname);
+        newStaff.put("pay", pay);
+        newStaff.put("field", field);
+        newStaff.put("phone_number", phone);
 
         staffData.add(newStaff);
 

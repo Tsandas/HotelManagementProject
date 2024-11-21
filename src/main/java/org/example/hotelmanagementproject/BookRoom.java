@@ -1,38 +1,21 @@
 package org.example.hotelmanagementproject;
 
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import org.example.hotelmanagementproject.Utils.YamlManager;
-import org.yaml.snakeyaml.Yaml;
 import org.example.hotelmanagementproject.Utils.Rooms;
+import org.example.hotelmanagementproject.Utils.YamlManager;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class BookRoom {
-
-    private void refresh() throws IOException {
-        Stage stage = (Stage) btnAddBooking.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("BookRoom.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Book Room");
-        stage.setResizable(false);
-        stage.setScene(scene);
-    }
 
     @FXML
     private TableView<Rooms> bookedRoomsTable;
@@ -51,6 +34,14 @@ public class BookRoom {
     @FXML
     private Button btnMyBookings;
 
+    private void refresh() throws IOException {
+        Stage stage = (Stage) btnAddBooking.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("BookRoom.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("HotelHub");
+        stage.setResizable(false);
+        stage.setScene(scene);
+    }
 
     @FXML
     private void initialize() throws IOException {
@@ -63,9 +54,7 @@ public class BookRoom {
 
     private void loadBookedRooms() throws IOException {
         List<Rooms> rooms = YamlManager.getRoomList();
-        List<Rooms> bookedRooms = rooms.stream()
-                .filter(room -> room.getAvailable())
-                .collect(Collectors.toList());
+        List<Rooms> bookedRooms = rooms.stream().filter(room -> room.getAvailable()).collect(Collectors.toList());
         bookedRoomsTable.getItems().setAll(bookedRooms);
     }
 
@@ -74,7 +63,7 @@ public class BookRoom {
         Stage stage = (Stage) btnBack.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("UserHomePage.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("User Home Page");
+        stage.setTitle("HotelHub");
         stage.setResizable(false);
         stage.setScene(scene);
     }
@@ -85,7 +74,7 @@ public class BookRoom {
         Stage stage = (Stage) btnMyBookings.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MyBookings.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("My Bookings");
+        stage.setTitle("HotelHub");
         stage.setResizable(false);
         stage.setScene(scene);
 

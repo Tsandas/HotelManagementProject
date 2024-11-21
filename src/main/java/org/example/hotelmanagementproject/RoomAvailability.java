@@ -9,7 +9,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import org.example.hotelmanagementproject.Utils.Rooms;
-import org.example.hotelmanagementproject.Utils.Staff;
 import org.example.hotelmanagementproject.Utils.YamlManager;
 import org.yaml.snakeyaml.Yaml;
 
@@ -22,16 +21,6 @@ import java.util.*;
 public class RoomAvailability {
 
     private ObservableList<Rooms> roomsObservableList = FXCollections.observableArrayList();
-
-    private void refresh(Button btn) throws IOException {
-        Stage stage = (Stage) btn.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("RoomAvailability.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Room Availability");
-        stage.setResizable(false);
-        stage.setScene(scene);
-    }
-
     @FXML
     private Button btnBack;
     @FXML
@@ -61,53 +50,6 @@ public class RoomAvailability {
     @FXML
     private TextField txtRoomType;
 
-    @FXML
-    private void onButtonBack() throws IOException {
-        Stage stage = (Stage) btnBack.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminHomePage.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Admin Dashboard");
-        stage.setResizable(false);
-        stage.setScene(scene);
-    }
-
-    public void onButtonMonthlyExpenses() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MonthlyExpenses.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        Stage stage = (Stage) btnMonthlyExpenses.getScene().getWindow();
-        stage.setTitle("Monthly Expenses");
-        stage.setResizable(false);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void onButtonStaffManager() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("StaffManagerPage.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        Stage stage = (Stage) btnStaffManager.getScene().getWindow();
-        stage.setTitle("Staff Manager");
-        stage.setResizable(false);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    @FXML
-    private void initialize() throws IOException {
-        colRoomId.setCellValueFactory(new PropertyValueFactory<>("roomId"));
-        colRoomType.setCellValueFactory(new PropertyValueFactory<>("roomType"));
-        colAmenities.setCellValueFactory(new PropertyValueFactory<>("amenities"));
-        colAvailability.setCellValueFactory(new PropertyValueFactory<>("available"));
-
-        loadBookedRooms();
-    }
-
-    private void loadBookedRooms() throws IOException {
-        List<Rooms> rooms = getRoomList();
-        roomsObservableList = FXCollections.observableArrayList(rooms);
-        roomsTable.setItems(roomsObservableList);
-        roomsTable.refresh();
-    }
-
     public static List<Rooms> getRoomList() throws IOException {
         String yamlFilePath = Paths.get("src/main/resources/Data/rooms.yaml").toAbsolutePath().toString();
         InputStream inputStream = Files.newInputStream(Paths.get(yamlFilePath));
@@ -132,6 +74,62 @@ public class RoomAvailability {
             roomsList.add(room);
         }
         return roomsList;
+    }
+
+    private void refresh(Button btn) throws IOException {
+        Stage stage = (Stage) btn.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("RoomAvailability.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("HotelHub");
+        stage.setResizable(false);
+        stage.setScene(scene);
+    }
+
+    @FXML
+    private void onButtonBack() throws IOException {
+        Stage stage = (Stage) btnBack.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminHomePage.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("HotelHub");
+        stage.setResizable(false);
+        stage.setScene(scene);
+    }
+
+    public void onButtonMonthlyExpenses() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MonthlyExpenses.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = (Stage) btnMonthlyExpenses.getScene().getWindow();
+        stage.setTitle("HotelHub");
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void onButtonStaffManager() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("StaffManagerPage.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = (Stage) btnStaffManager.getScene().getWindow();
+        stage.setTitle("HotelHub");
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    private void initialize() throws IOException {
+        colRoomId.setCellValueFactory(new PropertyValueFactory<>("roomId"));
+        colRoomType.setCellValueFactory(new PropertyValueFactory<>("roomType"));
+        colAmenities.setCellValueFactory(new PropertyValueFactory<>("amenities"));
+        colAvailability.setCellValueFactory(new PropertyValueFactory<>("available"));
+
+        loadBookedRooms();
+    }
+
+    private void loadBookedRooms() throws IOException {
+        List<Rooms> rooms = getRoomList();
+        roomsObservableList = FXCollections.observableArrayList(rooms);
+        roomsTable.setItems(roomsObservableList);
+        roomsTable.refresh();
     }
 
     public void onButtonRemoveRoom() {
@@ -210,7 +208,7 @@ public class RoomAvailability {
                 alert.setContentText("A room with such id already exists");
                 alert.showAndWait();
             }
-        }else {
+        } else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Room warning");
             alert.setHeaderText("Room input");

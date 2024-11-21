@@ -10,8 +10,6 @@ import javafx.stage.Stage;
 import org.example.hotelmanagementproject.Utils.YamlManager;
 
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 
 public class AdminHomePage {
@@ -29,7 +27,7 @@ public class AdminHomePage {
     @FXML
     private Button btnMonthlyExpenses;
     @FXML
-    private Button  btnStaffManager;
+    private Button btnStaffManager;
 
 
     public void initialize() throws IOException {
@@ -58,7 +56,7 @@ public class AdminHomePage {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("RoomAvailability.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = (Stage) btnRoomAvailability.getScene().getWindow();
-        stage.setTitle("Room Availability");
+        stage.setTitle("HotelHub");
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
@@ -68,7 +66,7 @@ public class AdminHomePage {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MonthlyExpenses.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = (Stage) btnMonthlyExpenses.getScene().getWindow();
-        stage.setTitle("Monthly Expenses");
+        stage.setTitle("HotelHub");
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
@@ -78,7 +76,7 @@ public class AdminHomePage {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("StaffManagerPage.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = (Stage) btnStaffManager.getScene().getWindow();
-        stage.setTitle("Staff Manger");
+        stage.setTitle("HotelHub");
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();

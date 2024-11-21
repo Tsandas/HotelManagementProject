@@ -53,7 +53,7 @@ public class UserHomePage {
         Stage stage = (Stage) btnMyBookings.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MyBookings.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("My Bookings");
+        stage.setTitle("HotelHub");
         stage.setResizable(false);
         stage.setScene(scene);
 
@@ -65,7 +65,7 @@ public class UserHomePage {
         Stage stage = (Stage) btnBookRooms.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("BookRoom.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Book Room");
+        stage.setTitle("HotelHub");
         stage.setResizable(false);
         stage.setScene(scene);
 
