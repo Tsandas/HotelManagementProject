@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="586.0" prefWidth="911.0" stylesheets="@../../../css/HomePage.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.hotelmanagementproject.MonthlyExpenses">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="586.0" prefWidth="911.0" stylesheets="@../../../css/General.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.hotelmanagementproject.MonthlyExpenses">
     <children>
         <HBox id="topBar" alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="911.0" spacing="15" style="-fx-background-color: #34495E; -fx-padding: 10;">
             <children>
@@ -19,9 +19,9 @@
         <VBox id="sideMenu" layoutX="0.0" layoutY="60.0" prefHeight="526.0" prefWidth="220.0" spacing="35.0" style="-fx-background-color: #1A252F; -fx-padding: 20;">
             <children>
                 <Button fx:id="btnBack" onAction="#onButtonBack" prefHeight="42.0" prefWidth="160.0" style="-fx-background-color: #1F2D3A; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 5; -fx-background-radius: 5;" text="Back" />
-                <Button prefHeight="42.0" prefWidth="160.0" style="-fx-background-color: #1F2D3A; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 5; -fx-background-radius: 5;" text="Staff Manager" />
-                <Button fx:id="btnRoomAvailability" prefHeight="42.0" prefWidth="160.0" style="-fx-background-color: #1F2D3A; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 5; -fx-background-radius: 5;" text="Room Availability" />
-                <Button prefHeight="42.0" prefWidth="160.0" style="-fx-background-color: #1F2D3A; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 5; -fx-background-radius: 5;" text="Monthly Expenses" />
+                <Button fx:id="btnStaffManager" onAction="#onButtonStaffManager" prefHeight="42.0" prefWidth="160.0" style="-fx-background-color: #1F2D3A; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 5; -fx-background-radius: 5;" text="Staff Manager" />
+                <Button fx:id="btnRoomAvailability" onAction="#onButtonRoomAvailability" prefHeight="42.0" prefWidth="160.0" style="-fx-background-color: #1F2D3A; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 5; -fx-background-radius: 5;" text="Room Availability" />
+                <Button fx:id="btnMonthlyExpenses" prefHeight="42.0" prefWidth="160.0" style="-fx-background-color: #1F2D3A; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 5; -fx-background-radius: 5;" text="Monthly Expenses" />
             </children>
         </VBox>
 

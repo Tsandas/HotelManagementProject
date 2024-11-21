@@ -28,11 +28,13 @@ public class AdminHomePage {
     private Button btnRoomAvailability;
     @FXML
     private Button btnMonthlyExpenses;
+    @FXML
+    private Button  btnStaffManager;
 
 
     public void initialize() throws IOException {
         totalStaffLabel.setText(String.format("Total staff: %s  Total monthly salaries: $%s", YamlManager.getTotalStaff(), YamlManager.staffMonthlySalaryTotal()));
-        monthlyExpensesLabel.setText(String.format("Total monthly expenses: $%s", YamlManager.getMonthlyExpenses()));
+        monthlyExpensesLabel.setText(String.format("Total monthly utility expenses: $%s", YamlManager.getMonthlyExpenses()));
 
 
         int available = YamlManager.roomAvailability().get("available");
@@ -67,6 +69,16 @@ public class AdminHomePage {
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = (Stage) btnMonthlyExpenses.getScene().getWindow();
         stage.setTitle("Monthly Expenses");
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void onButtonStaffManger() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("StaffManagerPage.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = (Stage) btnStaffManager.getScene().getWindow();
+        stage.setTitle("Staff Manger");
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();

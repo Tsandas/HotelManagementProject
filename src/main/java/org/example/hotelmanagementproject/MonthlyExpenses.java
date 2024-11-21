@@ -26,6 +26,8 @@ public class MonthlyExpenses {
     @FXML
     private Button btnRoomAvailability;
     @FXML
+    private Button btnStaffManager;
+    @FXML
     private Button btnUpdateCS;
     @FXML
     private Button btnUpdateEB;
@@ -56,17 +58,6 @@ public class MonthlyExpenses {
     @FXML
     private Label lblWB;
 
-
-    @FXML
-    private void initialize() throws IOException {
-        System.out.println(YamlManager.getExpensesMap());
-        lblEB.setText("$" + YamlManager.getExpensesMap().get("Electricity Bill"));
-        lblWB.setText("$" + YamlManager.getExpensesMap().get("Water Bill"));
-        lblIS.setText("$" + YamlManager.getExpensesMap().get("Internet Service"));
-        lblMS.setText("$" + YamlManager.getExpensesMap().get("Maintenance Supplies"));
-        lblCS.setText("$" + YamlManager.getExpensesMap().get("Cleaning Services"));
-    }
-
     @FXML
     private void onButtonBack() throws IOException {
         Stage stage = (Stage) btnBack.getScene().getWindow();
@@ -77,6 +68,35 @@ public class MonthlyExpenses {
         stage.setScene(scene);
     }
 
+    public void onButtonRoomAvailability() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("RoomAvailability.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = (Stage) btnRoomAvailability.getScene().getWindow();
+        stage.setTitle("Room Availability");
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void onButtonStaffManager() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("StaffManagerPage.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = (Stage) btnStaffManager.getScene().getWindow();
+        stage.setTitle("Saff Manager");
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    private void initialize() throws IOException {
+        System.out.println(YamlManager.getExpensesMap());
+        lblEB.setText("$" + YamlManager.getExpensesMap().get("Electricity Bill"));
+        lblWB.setText("$" + YamlManager.getExpensesMap().get("Water Bill"));
+        lblIS.setText("$" + YamlManager.getExpensesMap().get("Internet Service"));
+        lblMS.setText("$" + YamlManager.getExpensesMap().get("Maintenance Supplies"));
+        lblCS.setText("$" + YamlManager.getExpensesMap().get("Cleaning Services"));
+    }
 
     @FXML
     private void onButtonUpdateEL() throws IOException {

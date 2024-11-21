@@ -1,10 +1,10 @@
 package org.example.hotelmanagementproject.Utils;
 
 import javafx.scene.control.Alert;
-import org.example.hotelmanagementproject.AdminHomePage;
 import org.yaml.snakeyaml.DumperOptions;
 import org.yaml.snakeyaml.Yaml;
 
+import java.awt.desktop.AboutEvent;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
@@ -72,7 +72,6 @@ public class YamlManager {
             DumperOptions options = new DumperOptions();
             options.setPrettyFlow(true);
             options.setDefaultFlowStyle(DumperOptions.FlowStyle.BLOCK);
-            options.setPrettyFlow(true);
             Yaml yamlWriter = new Yaml(options);
             try (FileWriter writer = new FileWriter("src/main/resources/Data/rooms.yaml")) {
                 yamlWriter.dump(data, writer);
@@ -274,7 +273,7 @@ public class YamlManager {
         List<Map<String, Object>> staffList = data.get("staff");
         double totalSalaries = 0;
         for (Map<String, Object> staff : staffList) {
-            int pay = (int) staff.get("pay");
+            double pay = (Double) staff.get("pay");
             totalSalaries += pay;
         }
         return totalSalaries;
@@ -359,11 +358,123 @@ public class YamlManager {
         Yaml yaml = new Yaml();
         Map<String, List<Map<String, Object>>> data = yaml.load(inputStream);
         List<Map<String, Object>> expenses = data.get("expenses");
-        double totalValue = expenses.stream()
+        return expenses.stream()
                 .mapToDouble(expense -> ((Number) expense.get("value")).doubleValue())
                 .sum();
-        totalValue += staffMonthlySalaryTotal();
-        return totalValue;
+    }
+
+    public static List<Staff> getStaffList() throws IOException {
+        String yamlFilePath = Paths.get("src/main/resources/Data/staff.yaml").toAbsolutePath().toString();
+        InputStream inputStream = Files.newInputStream(Paths.get(yamlFilePath));
+
+        if (inputStream == null) {
+            throw new RuntimeException("YAML file not found.");
+        }
+
+        Yaml yaml = new Yaml();
+        Map<String, List<Map<String, Object>>> data = yaml.load(inputStream);
+        List<Map<String, Object>> staffData = data.get("staff");
+        List<Staff> staffList = new ArrayList<>();
+
+        for (Map<String, Object> staff : staffData) {
+            int id = (int) staff.get("id");
+            String fullname = (String) staff.get("fullname");
+            double pay = (double) staff.get("pay");
+            String field = (String) staff.get("field");
+            String phone = (String) staff.get("phone_number");
+
+            Staff staffObj = new Staff(id, fullname, pay, field, phone);
+            staffList.add(staffObj);
+        }
+
+        return staffList;
+    }
+
+    public static boolean staffExists(int targetId) throws IOException {
+        String yamlFilePath = Paths.get("src/main/resources/Data/staff.yaml").toAbsolutePath().toString();
+        InputStream inputStream = Files.newInputStream(Paths.get(yamlFilePath));
+
+        if (inputStream == null) {
+            throw new RuntimeException("YAML file not found.");
+        }
+
+        Yaml yaml = new Yaml();
+        Map<String, List<Map<String, Object>>> data = yaml.load(inputStream);
+        List<Map<String, Object>> staffData = data.get("staff");
+
+        if (staffData == null) {
+            throw new RuntimeException("Staff data not found in YAML file.");
+        }
+
+        return staffData.stream()
+                .anyMatch(staff -> Integer.valueOf(targetId).equals(staff.get("id")));
+
+    }
+
+    public static void removeStaffById(int targetId) throws IOException {
+        String yamlFilePath = Paths.get("src/main/resources/Data/staff.yaml").toAbsolutePath().toString();
+        InputStream inputStream = Files.newInputStream(Paths.get(yamlFilePath));
+
+        if (inputStream == null) {
+            throw new RuntimeException("YAML file not found.");
+        }
+
+        Yaml yaml = new Yaml();
+        Map<String, List<Map<String, Object>>> data = yaml.load(inputStream);
+        List<Map<String, Object>> staffData = data.get("staff");
+        boolean removed = staffData.removeIf(staff -> staff.get("id").equals(targetId));
+
+        if (removed) {
+            DumperOptions options = new DumperOptions();
+            options.setPrettyFlow(true);
+            options.setDefaultFlowStyle(DumperOptions.FlowStyle.BLOCK);
+            Yaml yamlWriter = new Yaml(options);
+            try (FileWriter writer = new FileWriter("src/main/resources/Data/staff.yaml")) {
+                yamlWriter.dump(data, writer);
+                System.out.println("Staff with ID " + targetId + " was successfully removed.");
+            } catch (IOException e) {
+                System.out.println("Error writing to the YAML file: " + e.getMessage());
+            }
+        } else {
+            System.out.println("Staff with " + targetId + " was not found");
+        }
+
+    }
+
+    public static void addStaff(int id, String fullname, double pay, String field, String phone) throws IOException {
+
+        String yamlFilePath = Paths.get("src/main/resources/Data/staff.yaml").toAbsolutePath().toString();
+        InputStream inputStream = Files.newInputStream(Paths.get(yamlFilePath));
+
+        if (inputStream == null) {
+            throw new RuntimeException("YAML file not found.");
+        }
+
+        Yaml yaml = new Yaml();
+        Map<String, List<Map<String, Object>>> data = yaml.load(inputStream);
+        List<Map<String, Object>> staffData = data.get("staff");
+
+        Map<String, Object> newStaff = new HashMap<>();
+        newStaff.put("id",id);
+        newStaff.put("fullname",fullname);
+        newStaff.put("pay",pay);
+        newStaff.put("field",field);
+        newStaff.put("phone_number",phone);
+
+        staffData.add(newStaff);
+
+        DumperOptions options = new DumperOptions();
+        options.setPrettyFlow(true);
+        options.setDefaultFlowStyle(DumperOptions.FlowStyle.BLOCK);
+        Yaml yamlWriter = new Yaml(options);
+
+        try (FileWriter writer = new FileWriter("src/main/resources/Data/staff.yaml")) {
+            yamlWriter.dump(data, writer);
+            System.out.println("Staff with ID " + id + " was successfully added.");
+        } catch (IOException e) {
+            System.out.println("Error writing to the YAML file: " + e.getMessage());
+        }
+
     }
 
 }

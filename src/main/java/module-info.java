@@ -6,6 +6,7 @@ module org.example.hotelmanagementproject {
     requires com.dlsc.formsfx;
     requires org.kordamp.bootstrapfx.core;
     requires org.yaml.snakeyaml;
+    requires java.desktop;
 
     opens org.example.hotelmanagementproject to javafx.fxml;
     opens org.example.hotelmanagementproject.Utils to javafx.base;

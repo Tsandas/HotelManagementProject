@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import org.example.hotelmanagementproject.Utils.Rooms;
+import org.example.hotelmanagementproject.Utils.Staff;
 import org.example.hotelmanagementproject.Utils.YamlManager;
 import org.yaml.snakeyaml.Yaml;
 
@@ -38,6 +39,10 @@ public class RoomAvailability {
     @FXML
     private Button btnAddRoom;
     @FXML
+    private Button btnMonthlyExpenses;
+    @FXML
+    private Button btnStaffManager;
+    @FXML
     private TableView<Rooms> roomsTable;
     @FXML
     private TableColumn<Rooms, Integer> colRoomId;
@@ -57,7 +62,37 @@ public class RoomAvailability {
     private TextField txtRoomType;
 
     @FXML
-    public void initialize() throws IOException {
+    private void onButtonBack() throws IOException {
+        Stage stage = (Stage) btnBack.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminHomePage.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("Admin Dashboard");
+        stage.setResizable(false);
+        stage.setScene(scene);
+    }
+
+    public void onButtonMonthlyExpenses() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MonthlyExpenses.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = (Stage) btnMonthlyExpenses.getScene().getWindow();
+        stage.setTitle("Monthly Expenses");
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void onButtonStaffManager() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("StaffManagerPage.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = (Stage) btnStaffManager.getScene().getWindow();
+        stage.setTitle("Staff Manager");
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    private void initialize() throws IOException {
         colRoomId.setCellValueFactory(new PropertyValueFactory<>("roomId"));
         colRoomType.setCellValueFactory(new PropertyValueFactory<>("roomType"));
         colAmenities.setCellValueFactory(new PropertyValueFactory<>("amenities"));
@@ -97,16 +132,6 @@ public class RoomAvailability {
             roomsList.add(room);
         }
         return roomsList;
-    }
-
-    @FXML
-    private void onButtonBack() throws IOException {
-        Stage stage = (Stage) btnBack.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminHomePage.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Admin Dashboard");
-        stage.setResizable(false);
-        stage.setScene(scene);
     }
 
     public void onButtonRemoveRoom() {
@@ -154,36 +179,45 @@ public class RoomAvailability {
 
     public void onButtonAdd() throws IOException {
 
-        boolean av = Boolean.parseBoolean(txtAvailability.getText());
-        int roomId = Integer.parseInt(txtRoomId.getText());
-        String rt = String.valueOf(txtRoomType.getText());
-        List<String> s = Collections.singletonList(txtAmenities.getText());
+        if (!txtAvailability.getText().isEmpty() && !txtRoomId.getText().isEmpty() && !txtRoomId.getText().isEmpty() && !txtAmenities.getText().isEmpty()) {
+            boolean av = Boolean.parseBoolean(txtAvailability.getText());
+            int roomId = Integer.parseInt(txtRoomId.getText());
+            String rt = String.valueOf(txtRoomType.getText());
+            List<String> s = Collections.singletonList(txtAmenities.getText());
 
-        if (!YamlManager.roomExists(roomId)) {
-            System.out.println(roomId + " " + av + " " + rt + " " + s);
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Room Status");
-            alert.setHeaderText("Room Status");
-            alert.setContentText("Are you sure you want to add this room to your bookings?");
-            ButtonType yesButton = new ButtonType("Yes");
-            ButtonType noButton = new ButtonType("No");
-            alert.getButtonTypes().setAll(yesButton, noButton);
-            Optional<ButtonType> result = alert.showAndWait();
-            if (result.isPresent() && result.get() == yesButton) {
-                YamlManager.addRoom(roomId, av, rt, s);
-                System.out.println("Room ID " + roomId + " has been added for booking.");
+
+            if (!YamlManager.roomExists(roomId)) {
+                System.out.println(roomId + " " + av + " " + rt + " " + s);
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Room Status");
+                alert.setHeaderText("Room Status");
+                alert.setContentText("Are you sure you want to add this room to your bookings?");
+                ButtonType yesButton = new ButtonType("Yes");
+                ButtonType noButton = new ButtonType("No");
+                alert.getButtonTypes().setAll(yesButton, noButton);
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.isPresent() && result.get() == yesButton) {
+                    YamlManager.addRoom(roomId, av, rt, s);
+                    System.out.println("Room ID " + roomId + " has been added for booking.");
+                } else {
+                    System.out.println("Adding room canceled.");
+                }
+                refresh(btnAddRoom);
             } else {
-                System.out.println("Adding room canceled.");
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Room warning");
+                alert.setHeaderText("Room Id");
+                alert.setContentText("A room with such id already exists");
+                alert.showAndWait();
             }
-            refresh(btnAddRoom);
-        } else {
+        }else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Room warning");
-            alert.setHeaderText("Room Id");
-            alert.setContentText("A room with such id already exists");
+            alert.setHeaderText("Room input");
+            alert.setContentText("Please fill all fields correctly");
             alert.showAndWait();
         }
-    }
 
+    }
 
 }

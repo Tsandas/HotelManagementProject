@@ -3,7 +3,7 @@ package org.example.hotelmanagementproject.Utils;
 public class Rooms {
 
     private int roomId;
-    public String roomType;
+    private String roomType;
     private String amenities;
     private boolean available;
 
