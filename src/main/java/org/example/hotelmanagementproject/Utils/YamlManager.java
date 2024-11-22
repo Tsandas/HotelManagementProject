@@ -17,6 +17,8 @@ import java.util.stream.Collectors;
 
 public class YamlManager {
 
+    private  YamlManager(){}
+
     public static Map<String, Integer> roomAvailability() throws IOException {
         String yamlFilePath = Paths.get("src/main/resources/Data/rooms.yaml").toAbsolutePath().toString();
         InputStream inputStream = Files.newInputStream(Paths.get(yamlFilePath));
