@@ -10,6 +10,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Objects;
 
 
@@ -26,6 +28,8 @@ public class LoginController {
     private Button btnLogin;
     @FXML
     private Button btnUser;
+    @FXML
+    private Button btnAbout;
     @FXML
     private TextField textFieldPassword;
     @FXML
@@ -47,6 +51,17 @@ public class LoginController {
         button.getStyleClass().add("active");
         button.setDisable(true);
         selectedRole = role;
+    }
+
+    @FXML
+    void onButtonAbout() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("About.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = (Stage) btnAbout.getScene().getWindow();
+        stage.setTitle("HotelHub");
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML

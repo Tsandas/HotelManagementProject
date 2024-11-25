@@ -81,3 +81,21 @@
 #logoAnchorPane {
     -fx-background-color: #FFFFFF;
 }
+
+.aboutButton {
+    -fx-background-color: transparent;
+    -fx-text-fill: #3498db;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 5px;
+    -fx-cursor: hand;
+    -fx-underline: true;
+}
+.aboutButton:hover {
+    -fx-text-fill: #2980b9;
+}
+
+.bodyText {
+    -fx-pref-height: auto; /* Allows the text to grow with content */
+    -fx-max-height: Infinity; /* Removes any height limit */
+}

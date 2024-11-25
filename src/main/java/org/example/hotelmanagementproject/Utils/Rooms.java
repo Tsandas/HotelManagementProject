@@ -46,5 +46,4 @@ public class Rooms {
         this.available = available;
     }
 
-
 }

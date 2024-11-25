@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="aboutAnchorPane" prefHeight="452.0" prefWidth="684.0" stylesheets="@../../../css/LoginStage.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.hotelmanagementproject.About">
+    <children>
+        <Label layoutX="202.0" layoutY="4.0" prefHeight="64.0" prefWidth="281.0" styleClass="titleLabel" text="About HotelHub" />
+
+        <Button fx:id="btnBack" layoutX="277.0" layoutY="401.0" onAction="#onButtonBack" styleClass="loginButton" text="Back to Login" />
+      <VBox layoutX="50.0" layoutY="107.0" prefHeight="269.0" prefWidth="584.0">
+         <children>
+               <Text wrappingWidth="300.76953125">Welcome to Hotel Hub! Here you can easily manage hotel bookings and users.</Text>
+            <Region prefHeight="18.0" prefWidth="584.0" />
+               <Text wrappingWidth="584.0">Admin Login (username: admin, password: admin):</Text>
+               <Text wrappingWidth="584.0">Dashboard: View an overview of rooms, staff, and expenses.</Text>
+               <Text wrappingWidth="584.0">Room Management: Add or remove rooms for booking.</Text>
+               <Text wrappingWidth="584.0">Staff Management: Add or remove staff members.</Text>
+               <Text wrappingWidth="584.0">Expense Management: Track and input hotel expenses.</Text>
+            <Region prefHeight="18.0" prefWidth="584.0" />
+   
+               <Text wrappingWidth="584.0">User Login (username: user, password: user):</Text>
+               <Text text="Room Booking: View available rooms and manage bookings." wrappingWidth="584.0">Room Booking: View available rooms and manage bookings.</Text>
+               <Text wrappingWidth="584.0">User Dashboard: Track bookings and view available rooms.</Text>
+            <Region prefHeight="18.0" prefWidth="584.0" />
+   
+               <Text wrappingWidth="584.0">All actions, from bookings to staff and expense updates, are reflected in real-time across the system.</Text>
+               <Text wrappingWidth="584.0">Changes are saved even after closing the program.</Text>
+         </children>
+      </VBox>
+    </children>
+</AnchorPane>
