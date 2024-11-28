@@ -73,3 +73,8 @@ rooms:
   amenities:
   - Wi-Fi
   - TV
+- room_id: 124
+  amenities:
+  - sdgsdg
+  available: false
+  room_type: agsdsd

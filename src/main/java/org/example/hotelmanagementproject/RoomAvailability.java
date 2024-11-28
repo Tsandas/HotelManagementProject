@@ -178,7 +178,13 @@ public class RoomAvailability {
     public void onButtonAdd() throws IOException {
 
         if (!txtAvailability.getText().isEmpty() && !txtRoomId.getText().isEmpty() && !txtRoomId.getText().isEmpty() && !txtAmenities.getText().isEmpty()) {
-            boolean av = Boolean.parseBoolean(txtAvailability.getText());
+            String input = txtAvailability.getText().toLowerCase().trim(); // Normalize input
+            boolean av;
+            if (input.equals("true") || input.equals("false")) {
+                av = Boolean.parseBoolean(input);
+            } else {
+                av = true;
+            }
             int roomId = Integer.parseInt(txtRoomId.getText());
             String rt = String.valueOf(txtRoomType.getText());
             List<String> s = Collections.singletonList(txtAmenities.getText());
@@ -187,7 +193,7 @@ public class RoomAvailability {
             if (!YamlManager.roomExists(roomId)) {
                 System.out.println(roomId + " " + av + " " + rt + " " + s);
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("Room Status");
+                alert.setTitle("Add room warning");
                 alert.setHeaderText("Room Status");
                 alert.setContentText("Are you sure you want to add this room to your bookings?");
                 ButtonType yesButton = new ButtonType("Yes");
@@ -203,14 +209,14 @@ public class RoomAvailability {
                 refresh(btnAddRoom);
             } else {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Room warning");
+                alert.setTitle("Add room warning");
                 alert.setHeaderText("Room Id");
                 alert.setContentText("A room with such id already exists");
                 alert.showAndWait();
             }
         } else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Room warning");
+            alert.setTitle("Add room warning");
             alert.setHeaderText("Room input");
             alert.setContentText("Please fill all fields correctly");
             alert.showAndWait();
