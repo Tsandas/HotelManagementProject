@@ -84,23 +84,33 @@ public class BookRoom {
     @FXML
     private void onButtonBookRoom() throws IOException {
 
-        int roomId = Integer.parseInt(txtRoomIdToAdd.getText());
+        if (txtRoomIdToAdd.getText().matches("\\d+(\\.\\d+)?") && YamlManager.roomAvailable(Integer.parseInt(txtRoomIdToAdd.getText()))){
 
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Room Status");
-        alert.setHeaderText("Room Status");
-        alert.setContentText("Are you sure you want to book this room?");
+            int roomId = Integer.parseInt(txtRoomIdToAdd.getText());
 
-        ButtonType yesButton = new ButtonType("Yes");
-        ButtonType noButton = new ButtonType("No");
-        alert.getButtonTypes().setAll(yesButton, noButton);
-        Optional<ButtonType> result = alert.showAndWait();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Room Status");
+            alert.setHeaderText("Room Status");
+            alert.setContentText("Are you sure you want to book this room?");
 
-        if (result.isPresent() && result.get() == yesButton) {
-            YamlManager.changeRoomAvailabilityToFalse(roomId);
-            System.out.println("Room ID " + roomId + " has been to your bookings.");
-        } else {
-            System.out.println("Room removal canceled.");
+            ButtonType yesButton = new ButtonType("Yes");
+            ButtonType noButton = new ButtonType("No");
+            alert.getButtonTypes().setAll(yesButton, noButton);
+            Optional<ButtonType> result = alert.showAndWait();
+
+            if (result.isPresent() && result.get() == yesButton) {
+                YamlManager.changeRoomAvailabilityToFalse(roomId);
+                System.out.println("Room ID " + roomId + " has been to your bookings.");
+            } else {
+                System.out.println("Room removal canceled.");
+            }
+            refresh();
+        }else{
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Room status");
+            alert.setHeaderText("Not valid room id");
+            alert.setContentText("Please provide a valid room id");
+            alert.showAndWait();
         }
         refresh();
     }

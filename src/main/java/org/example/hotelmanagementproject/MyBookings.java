@@ -81,24 +81,35 @@ public class MyBookings {
 
     @FXML
     private void onButtonRemoveBooking() throws IOException {
-        int roomId = Integer.parseInt(txtRoomIdToRemove.getText());
 
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Room Status");
-        alert.setHeaderText("Room Status");
-        alert.setContentText("Are you sure you want to remove this room from your bookings?");
+        if (txtRoomIdToRemove.getText().matches("\\d+(\\.\\d+)?") && YamlManager.roomAvailable(Integer.parseInt(txtRoomIdToRemove.getText()))) {
 
-        ButtonType yesButton = new ButtonType("Yes");
-        ButtonType noButton = new ButtonType("No");
-        alert.getButtonTypes().setAll(yesButton, noButton);
-        Optional<ButtonType> result = alert.showAndWait();
+            int roomId = Integer.parseInt(txtRoomIdToRemove.getText());
 
-        if (result.isPresent() && result.get() == yesButton) {
-            YamlManager.changeRoomAvailabilityToTrue(roomId);
-            System.out.println("Room ID " + roomId + " has been removed from bookings and availability set to true.");
-        } else {
-            System.out.println("Room removal canceled.");
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Room Status");
+            alert.setHeaderText("Room Status");
+            alert.setContentText("Are you sure you want to remove this room from your bookings?");
+
+            ButtonType yesButton = new ButtonType("Yes");
+            ButtonType noButton = new ButtonType("No");
+            alert.getButtonTypes().setAll(yesButton, noButton);
+            Optional<ButtonType> result = alert.showAndWait();
+
+            if (result.isPresent() && result.get() == yesButton) {
+                YamlManager.changeRoomAvailabilityToTrue(roomId);
+                System.out.println("Room ID " + roomId + " has been removed from bookings and availability set to true.");
+            } else {
+                System.out.println("Room removal canceled.");
+            }
+        }else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Room status");
+            alert.setHeaderText("Not valid room id");
+            alert.setContentText("Please provide a valid room id");
+            alert.showAndWait();
         }
+
         refresh();
     }
 
