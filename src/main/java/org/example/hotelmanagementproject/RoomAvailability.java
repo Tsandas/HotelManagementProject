@@ -121,7 +121,7 @@ public class RoomAvailability {
         colRoomType.setCellValueFactory(new PropertyValueFactory<>("roomType"));
         colAmenities.setCellValueFactory(new PropertyValueFactory<>("amenities"));
         colAvailability.setCellValueFactory(new PropertyValueFactory<>("available"));
-
+        roomsTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
         loadBookedRooms();
     }
 

@@ -13,7 +13,7 @@
     <children>
         <HBox id="topBar" alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="911.0" spacing="15">
             <children>
-                <Label style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: white;" text="My Bookings" />
+                <Label style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: white;" text="Book rooms" />
             </children>
         </HBox>
 

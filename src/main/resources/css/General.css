@@ -46,3 +46,53 @@ Button {
 AnchorPane {
     -fx-background-color: #E5E8EF;
 }
+
+TableView {
+    -fx-background-color: #F7F9FB;
+    -fx-border-color: #D6DCE5;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0, 0, 2);
+    -fx-selection-bar: #34495E;
+    -fx-selection-bar-text: white;
+    -fx-font-family: 'Arial', sans-serif;
+    -fx-font-size: 14px;
+    -fx-text-fill: #34495E;
+}
+
+TableColumn {
+    -fx-alignment: center-left;
+    -fx-text-fill: #34495E;
+    -fx-font-weight: bold;
+    -fx-background-color: transparent;
+}
+
+TableView .column-header {
+    -fx-background-color: #E5E8EF;
+    -fx-border-color: #D6DCE5;
+    -fx-border-width: 0 0 1 0;
+    -fx-font-family: 'Arial', sans-serif;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #34495E;
+}
+
+TableView .cell {
+    -fx-padding: 8 10 8 10;
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-text-fill: #34495E;
+    -fx-selection-bar-text: #34495E;
+}
+
+TableView .cell:hover {
+    -fx-background-color: #F0F0F0;
+    -fx-text-fill: #34495E;
+}
+
+
+TableView .column-header:hover {
+    -fx-background-color: #D6DCE5;
+}

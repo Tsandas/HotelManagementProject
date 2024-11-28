@@ -1,87 +1,81 @@
 rooms:
-  - room_id: 101
-    available: true
-    room_type: Single
-    amenities:
-      - Wi-Fi
-      - TV
-  - room_id: 103
-    available: true
-    room_type: Double
-    amenities:
-      - Wi-Fi
-      - TV
-      - Mini-bar
-  - room_id: 108
-    available: false
-    room_type: Suite
-    amenities:
-      - Wi-Fi
-      - TV
-      - Mini-bar
-      - Jacuzzi
-  - room_id: 110
-    available: false
-    room_type: Double
-    amenities:
-      - Wi-Fi
-      - TV
-  - room_id: 111
-    available: true
-    room_type: Single
-    amenities:
-      - Wi-Fi
-      - TV
-  - room_id: 115
-    available: true
-    room_type: Suite
-    amenities:
-      - Wi-Fi
-      - TV
-      - Mini-bar
-      - Jacuzzi
-  - room_id: 201
-    available: true
-    room_type: Double
-    amenities:
-      - Wi-Fi
-      - TV
-  - room_id: 205
-    available: false
-    room_type: Single
-    amenities:
-      - Wi-Fi
-      - TV
-  - room_id: 207
-    available: true
-    room_type: Double
-    amenities:
-      - Wi-Fi
-      - TV
-      - Mini-bar
-  - room_id: 210
-    available: true
-    room_type: Suite
-    amenities:
-      - Wi-Fi
-      - TV
-      - Mini-bar
-      - Jacuzzi
-  - room_id: 215
-    available: true
-    room_type: Double
-    amenities:
-      - Sea view
-      - Wi-Fi
-  - room_id: 220
-    available: false
-    room_type: Single
-    amenities:
-      - Wi-Fi
-      - TV
-  - room_id: 305
-    available: true
-    room_type: Single
-    amenities:
-      - Wi-Fi
-      - TV
+- room_id: 101
+  available: true
+  room_type: Single
+  amenities:
+  - Wi-Fi
+  - TV
+- room_id: 103
+  available: true
+  room_type: Double
+  amenities:
+  - Wi-Fi
+  - TV
+  - Mini-bar
+- room_id: 108
+  available: false
+  room_type: Suite
+  amenities:
+  - Wi-Fi
+  - TV
+  - Mini-bar
+  - Jacuzzi
+- room_id: 110
+  available: false
+  room_type: Double
+  amenities:
+  - Wi-Fi
+  - TV
+- room_id: 115
+  available: true
+  room_type: Suite
+  amenities:
+  - Wi-Fi
+  - TV
+  - Mini-bar
+  - Jacuzzi
+- room_id: 201
+  available: true
+  room_type: Double
+  amenities:
+  - Wi-Fi
+  - TV
+- room_id: 205
+  available: false
+  room_type: Single
+  amenities:
+  - Wi-Fi
+  - TV
+- room_id: 207
+  available: true
+  room_type: Double
+  amenities:
+  - Wi-Fi
+  - TV
+  - Mini-bar
+- room_id: 210
+  available: true
+  room_type: Suite
+  amenities:
+  - Wi-Fi
+  - TV
+  - Mini-bar
+  - Jacuzzi
+- room_id: 215
+  available: true
+  room_type: Double
+  amenities:
+  - Sea view
+  - Wi-Fi
+- room_id: 220
+  available: false
+  room_type: Single
+  amenities:
+  - Wi-Fi
+  - TV
+- room_id: 305
+  available: false
+  room_type: Single
+  amenities:
+  - Wi-Fi
+  - TV

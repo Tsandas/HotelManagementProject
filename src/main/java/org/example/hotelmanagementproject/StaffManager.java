@@ -98,7 +98,7 @@ public class StaffManager {
         fieldColumn.setCellValueFactory(new PropertyValueFactory<>("field"));
         payColumn.setCellValueFactory(new PropertyValueFactory<>("pay"));
         phoneColumn.setCellValueFactory(new PropertyValueFactory<>("phone"));
-
+        staffTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
         loadStaff();
     }
 
@@ -159,7 +159,7 @@ public class StaffManager {
             alert.setContentText("Please provide a valid values");
             alert.showAndWait();
         }
-        refresh(btnDeleteStaff);
+        refresh(btnAddStaff);
     }
 
 

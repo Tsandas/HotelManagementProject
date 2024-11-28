@@ -69,7 +69,7 @@ public class MyBookings {
         colRoomId.setCellValueFactory(new PropertyValueFactory<>("roomId"));
         colRoomType.setCellValueFactory(new PropertyValueFactory<>("roomType"));
         colAmenities.setCellValueFactory(new PropertyValueFactory<>("amenities"));
-
+        bookedRoomsTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
         loadBookedRooms();
     }
 

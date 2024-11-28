@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
-
 <AnchorPane id="mainAnchorPane" prefHeight="452.0" prefWidth="684.0" stylesheets="@../../../css/LoginStage.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.hotelmanagementproject.LoginController">
    <children>
       <AnchorPane id="logoAnchorPane" prefHeight="452.0" prefWidth="260.0">
