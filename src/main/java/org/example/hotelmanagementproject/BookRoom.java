@@ -84,8 +84,7 @@ public class BookRoom {
     @FXML
     private void onButtonBookRoom() throws IOException {
 
-        if (txtRoomIdToAdd.getText().matches("\\d+(\\.\\d+)?") && YamlManager.roomAvailable(Integer.parseInt(txtRoomIdToAdd.getText()))){
-
+        if (txtRoomIdToAdd.getText().matches("\\d+(\\.\\d+)?") && YamlManager.roomAvailable(Integer.parseInt(txtRoomIdToAdd.getText())) &&YamlManager.roomExists(Integer.parseInt(txtRoomIdToAdd.getText()))){
             int roomId = Integer.parseInt(txtRoomIdToAdd.getText());
 
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -104,7 +103,6 @@ public class BookRoom {
             } else {
                 System.out.println("Room removal canceled.");
             }
-            refresh();
         }else{
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Room status");
@@ -113,6 +111,7 @@ public class BookRoom {
             alert.showAndWait();
         }
         refresh();
+
     }
 
 }

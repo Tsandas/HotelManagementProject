@@ -27,7 +27,7 @@ rooms:
   - Wi-Fi
   - TV
 - room_id: 115
-  available: true
+  available: false
   room_type: Suite
   amenities:
   - Wi-Fi
@@ -68,12 +68,6 @@ rooms:
   - Sea view
   - Wi-Fi
 - room_id: 220
-  available: true
-  room_type: Single
-  amenities:
-  - Wi-Fi
-  - TV
-- room_id: 305
   available: true
   room_type: Single
   amenities:
