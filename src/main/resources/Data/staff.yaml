@@ -24,8 +24,8 @@ staff:
   pay: 4800.0
   field: Maintenance
   phone_number: 567-890-1234
-- id: 6
-  fullname: Robert
-  pay: 4800.0
-  field: Maintenance
-  phone_number: 567-890-1234
+- field: IT
+  pay: 5000.0
+  phone_number: '1234567'
+  id: 6
+  fullname: Giorgos

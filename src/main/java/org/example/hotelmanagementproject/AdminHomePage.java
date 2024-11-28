@@ -40,6 +40,8 @@ public class AdminHomePage {
         PieChart.Data availableRooms = new PieChart.Data("Available", (double) available / total);
         PieChart.Data bookedRooms = new PieChart.Data("Booked", 1 - (double) available / total);
         roomAvailabilityChart.getData().addAll(availableRooms, bookedRooms);
+        bookedRooms.getNode().setStyle("-fx-pie-color: #1F2D3A;");
+        availableRooms.getNode().setStyle("-fx-pie-color: #34495E;");
     }
 
     public void onButtonBack() throws IOException {
