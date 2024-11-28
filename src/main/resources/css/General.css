@@ -96,3 +96,8 @@ TableView .cell:hover {
 TableView .column-header:hover {
     -fx-background-color: #D6DCE5;
 }
+
+Button:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 5, 0, 0, 2);
+    -fx-cursor: hand;
+}
