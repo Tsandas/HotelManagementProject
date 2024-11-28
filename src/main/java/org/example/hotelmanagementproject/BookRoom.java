@@ -84,7 +84,7 @@ public class BookRoom {
     @FXML
     private void onButtonBookRoom() throws IOException {
 
-        if (txtRoomIdToAdd.getText().matches("\\d+(\\.\\d+)?") && YamlManager.roomAvailable(Integer.parseInt(txtRoomIdToAdd.getText())) &&YamlManager.roomExists(Integer.parseInt(txtRoomIdToAdd.getText()))){
+        if (txtRoomIdToAdd.getText().matches("^\\d+$") && YamlManager.roomAvailable(Integer.parseInt(txtRoomIdToAdd.getText())) &&YamlManager.roomExists(Integer.parseInt(txtRoomIdToAdd.getText()))){
             int roomId = Integer.parseInt(txtRoomIdToAdd.getText());
 
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);

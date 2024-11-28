@@ -82,7 +82,7 @@ public class MyBookings {
     @FXML
     private void onButtonRemoveBooking() throws IOException {
 
-        if (txtRoomIdToRemove.getText().matches("\\d+(\\.\\d+)?") && !YamlManager.roomAvailable(Integer.parseInt(txtRoomIdToRemove.getText())) && YamlManager.roomExists(Integer.parseInt(txtRoomIdToRemove.getText()))) {
+        if (txtRoomIdToRemove.getText().matches("^\\d+$") && !YamlManager.roomAvailable(Integer.parseInt(txtRoomIdToRemove.getText())) && YamlManager.roomExists(Integer.parseInt(txtRoomIdToRemove.getText()))) {
 
             int roomId = Integer.parseInt(txtRoomIdToRemove.getText());
 

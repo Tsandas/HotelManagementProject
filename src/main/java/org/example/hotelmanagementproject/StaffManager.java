@@ -90,7 +90,6 @@ public class StaffManager {
         stage.show();
     }
 
-
     @FXML
     private void initialize() throws IOException {
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -110,7 +109,7 @@ public class StaffManager {
     }
 
     public void onButtonRemoveStaff() throws IOException {
-        if (!txtId.getText().isEmpty() && txtId.getText().matches("\\d+(\\.\\d+)?") && YamlManager.staffExists(Integer.parseInt(txtId.getText()))) {
+        if (!txtId.getText().isEmpty() && txtId.getText().matches("^\\d+$") && YamlManager.staffExists(Integer.parseInt(txtId.getText()))) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Staff Management");
             alert.setHeaderText("Staff employment");
@@ -127,14 +126,20 @@ public class StaffManager {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Staff management");
             alert.setHeaderText("Input value");
-            alert.setContentText("Please provide a valid value");
+            alert.setContentText("Please provide valid values");
             alert.showAndWait();
         }
         refresh(btnDeleteStaff);
     }
 
     public void onButtonAddStaff() throws IOException {
-        if (!txtId.getText().isEmpty() && !txtFullname.getText().isEmpty() && !txtField.getText().isEmpty() && !txtPay.getText().isEmpty() && !txtPhone.getText().isEmpty()) {
+        if (txtId.getText().matches("^\\d+$")
+                && txtPay.getText().matches("\\d+(\\.\\d+)?")
+                && txtPhone.getText().matches("^\\d+$")
+                && !txtId.getText().isEmpty() && !txtFullname.getText().isEmpty()
+                && !txtField.getText().isEmpty() && !txtPay.getText().isEmpty()
+                && !txtPhone.getText().isEmpty()) {
+
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Staff Management");
             alert.setHeaderText("Staff employment");
@@ -156,7 +161,7 @@ public class StaffManager {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Staff management");
             alert.setHeaderText("Input value");
-            alert.setContentText("Please provide a valid values");
+            alert.setContentText("Please provide valid values");
             alert.showAndWait();
         }
         refresh(btnAddStaff);
