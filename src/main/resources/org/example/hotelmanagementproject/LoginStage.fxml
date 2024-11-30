@@ -9,14 +9,15 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
+
 <AnchorPane id="mainAnchorPane" prefHeight="452.0" prefWidth="684.0" stylesheets="@../../../css/LoginStage.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.hotelmanagementproject.LoginController">
    <children>
       <AnchorPane id="logoAnchorPane" prefHeight="452.0" prefWidth="260.0">
          <children>
             <VBox alignment="CENTER" prefHeight="494.0" prefWidth="260.0" spacing="20">
-               <ImageView fitHeight="102.0" fitWidth="209.0">
+               <ImageView fitHeight="73.0" fitWidth="209.0">
                   <image>
-                     <Image url="@../../../Images/hotelHubLogin.png" />
+                     <Image url="@../../../Images/HotelHubLogo.png" />
                   </image>
                </ImageView>
                <Label id="loginHeader" styleClass="subTitleLabel" text="Login" />

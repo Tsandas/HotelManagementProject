@@ -1,80 +1,94 @@
 rooms:
-- room_id: 101
-  available: true
-  room_type: Single
-  amenities:
-  - Wi-Fi
-  - TV
-- room_id: 103
-  available: true
-  room_type: Double
-  amenities:
-  - Wi-Fi
-  - TV
-  - Mini-bar
-- room_id: 108
-  available: false
-  room_type: Suite
-  amenities:
-  - Wi-Fi
-  - TV
-  - Mini-bar
-  - Jacuzzi
-- room_id: 110
-  available: false
-  room_type: Double
-  amenities:
-  - Wi-Fi
-  - TV
-- room_id: 115
-  available: false
-  room_type: Suite
-  amenities:
-  - Wi-Fi
-  - TV
-  - Mini-bar
-  - Jacuzzi
-- room_id: 201
-  available: true
-  room_type: Double
-  amenities:
-  - Wi-Fi
-  - TV
-- room_id: 205
-  available: true
-  room_type: Single
-  amenities:
-  - Wi-Fi
-  - TV
-- room_id: 207
-  available: true
-  room_type: Double
-  amenities:
-  - Wi-Fi
-  - TV
-  - Mini-bar
-- room_id: 210
-  available: false
-  room_type: Suite
-  amenities:
-  - Wi-Fi
-  - TV
-  - Mini-bar
-  - Jacuzzi
-- room_id: 215
-  available: false
-  room_type: Double
-  amenities:
-  - Sea view
-  - Wi-Fi
-- room_id: 220
-  available: true
-  room_type: Single
-  amenities:
-  - Wi-Fi
-  - TV
-- room_id: 124
-  amenities:
-  - sdgsdg
-  available: false
-  room_type: agsdsd
+  - room_id: 301
+    available: true
+    room_type: Single
+    amenities:
+      - Wi-Fi
+      - TV
+      - Desk
+  - room_id: 305
+    available: false
+    room_type: Double
+    amenities:
+      - Wi-Fi
+      - TV
+      - Mini-bar
+      - Balcony
+  - room_id: 310
+    available: true
+    room_type: Suite
+    amenities:
+      - Wi-Fi
+      - TV
+      - Mini-bar
+      - Jacuzzi
+      - Private Pool
+  - room_id: 315
+    available: false
+    room_type: Double
+    amenities:
+      - Wi-Fi
+      - TV
+      - Sea view
+      - Kitchenette
+  - room_id: 320
+    available: true
+    room_type: Single
+    amenities:
+      - Wi-Fi
+      - TV
+  - room_id: 401
+    available: false
+    room_type: Suite
+    amenities:
+      - Wi-Fi
+      - TV
+      - Mini-bar
+      - Terrace
+      - Fireplace
+  - room_id: 405
+    available: true
+    room_type: Single
+    amenities:
+      - Wi-Fi
+      - Desk
+      - Air Conditioning
+  - room_id: 410
+    available: false
+    room_type: Double
+    amenities:
+      - Wi-Fi
+      - TV
+      - Balcony
+  - room_id: 415
+    available: true
+    room_type: Suite
+    amenities:
+      - Wi-Fi
+      - TV
+      - Mini-bar
+      - Jacuzzi
+  - room_id: 420
+    available: false
+    room_type: Double
+    amenities:
+      - Wi-Fi
+      - TV
+      - Kitchenette
+  - room_id: 425
+    available: true
+    room_type: Single
+    amenities:
+      - Wi-Fi
+      - TV
+      - Desk
+      - Air Conditioning
+  - room_id: 430
+    available: true
+    room_type: Suite
+    amenities:
+      - Wi-Fi
+      - TV
+      - Mini-bar
+      - Sea view
+      - Private Garden
