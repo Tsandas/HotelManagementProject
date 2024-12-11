@@ -177,7 +177,7 @@ public class RoomAvailability {
 
     public void onButtonAdd() throws IOException {
 
-        if (!txtAvailability.getText().isEmpty() && !txtRoomId.getText().isEmpty() && !txtRoomId.getText().isEmpty() && !txtAmenities.getText().isEmpty()) {
+        if (!txtAvailability.getText().isEmpty() && !txtRoomId.getText().isEmpty() && txtRoomId.getText().matches("^\\d+$") && !txtAmenities.getText().isEmpty()) {
             String input = txtAvailability.getText().toLowerCase().trim(); // Normalize input
             boolean av;
             if (input.equals("true") || input.equals("false")) {
