@@ -30,8 +30,8 @@ public class UserHomePage {
     private Label roomsBookedLabel;
 
     public void initialize() throws IOException {
-        roomsAvailableLabel.setText(String.format("Rooms available for booking : %s", YamlManager.roomAvailability().get("total") - YamlManager.roomAvailability().get("available")));
-        roomsBookedLabel.setText(String.format("Booked rooms : %s", YamlManager.roomAvailability().get("available")));
+        roomsBookedLabel.setText(String.format("Booked rooms : %s", YamlManager.roomAvailability().get("total") - YamlManager.roomAvailability().get("available")));
+        roomsAvailableLabel.setText(String.format("Rooms available for booking : %s", YamlManager.roomAvailability().get("available")));
     }
 
     @FXML
